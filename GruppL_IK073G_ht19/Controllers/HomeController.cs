@@ -26,6 +26,6 @@ namespace GruppL_IK073G_ht19.Controllers
 
             return View();
         }
-        //testar Github
+        //testar GitHub
     }
 }
