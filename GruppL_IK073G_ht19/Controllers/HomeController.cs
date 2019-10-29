@@ -13,6 +13,8 @@ namespace GruppL_IK073G_ht19.Controllers
             return View();
         }
 
+        //Syns detta?
+
         public ActionResult About()
         {
             ViewBag.Message = "Your application description page.";
