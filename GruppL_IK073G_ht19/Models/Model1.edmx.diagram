@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="471f07f56d1f48acb7c2afc5b1ceda00" Name="Diagram1">
+        <EntityTypeShape EntityType="GruppLModel.Competences" Width="1.5" PointX="3.75" PointY="1.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="GruppLModel.Customers" Width="1.5" PointX="0.75" PointY="1.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="GruppLModel.Educations" Width="1.5" PointX="5.25" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="GruppLModel.Employments" Width="1.5" PointX="5.25" PointY="7" IsExpanded="true" />
+        <EntityTypeShape EntityType="GruppLModel.Expertises" Width="1.5" PointX="6" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="GruppLModel.key_abilitiy" Width="1.5" PointX="5.25" PointY="10" IsExpanded="true" />
+        <EntityTypeShape EntityType="GruppLModel.Languages" Width="1.5" PointX="0.75" PointY="7" IsExpanded="true" />
+        <EntityTypeShape EntityType="GruppLModel.Person_Expertise" Width="1.5" PointX="8.25" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="GruppLModel.Persons" Width="1.5" PointX="3" PointY="5.75" IsExpanded="true" />
+        <AssociationConnector Association="GruppLModel.FK__Expertise__Compe__4BAC3F29" ManuallyRouted="false" />
+        <AssociationConnector Association="GruppLModel.FK__Education__Perso__30F848ED" ManuallyRouted="false" />
+        <AssociationConnector Association="GruppLModel.FK__Employmen__Perso__300424B4" ManuallyRouted="false" />
+        <AssociationConnector Association="GruppLModel.FK__Person_Ex__Exper__4F7CD00D" ManuallyRouted="false" />
+        <AssociationConnector Association="GruppLModel.FK__key_abili__perso__52593CB8" ManuallyRouted="false" />
+        <AssociationConnector Association="GruppLModel.FK__Person_Ex__Perso__4E88ABD4" ManuallyRouted="false" />
+        <AssociationConnector Association="GruppLModel.Person_Language" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

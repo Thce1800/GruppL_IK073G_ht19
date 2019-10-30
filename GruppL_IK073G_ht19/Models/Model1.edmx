@@ -1,0 +1,599 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="GruppLModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Competences">
+          <Key>
+            <PropertyRef Name="Competence_id" />
+          </Key>
+          <Property Name="Competence_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Competence" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Customers">
+          <Key>
+            <PropertyRef Name="Customer_id" />
+          </Key>
+          <Property Name="Customer_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="FirstName" Type="varchar" MaxLength="50" />
+          <Property Name="LastName" Type="varchar" MaxLength="50" />
+          <Property Name="Buisness" Type="varchar" MaxLength="50" />
+          <Property Name="Adress" Type="varchar" MaxLength="50" />
+          <Property Name="Email" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Educations">
+          <Key>
+            <PropertyRef Name="Education_id" />
+          </Key>
+          <Property Name="Education_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Person_ID" Type="int" Nullable="false" />
+          <Property Name="Educational_institution" Type="varchar" MaxLength="50" />
+          <Property Name="Educational_program" Type="varchar" MaxLength="50" />
+          <Property Name="Diploma" Type="varchar" MaxLength="50" />
+          <Property Name="End_date" Type="date" />
+          <Property Name="Start_date" Type="date" />
+        </EntityType>
+        <EntityType Name="Employments">
+          <Key>
+            <PropertyRef Name="Employment_id" />
+          </Key>
+          <Property Name="Employment_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Person_Id" Type="int" Nullable="false" />
+          <Property Name="End_date" Type="date" />
+          <Property Name="Start_date" Type="date" />
+          <Property Name="Assignments" Type="varchar" MaxLength="200" />
+        </EntityType>
+        <EntityType Name="Expertises">
+          <Key>
+            <PropertyRef Name="Expertise_id" />
+          </Key>
+          <Property Name="Expertise_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Competence_id" Type="int" Nullable="false" />
+          <Property Name="Competence" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="key_abilitiy">
+          <Key>
+            <PropertyRef Name="key_abilitiy_id" />
+          </Key>
+          <Property Name="key_abilitiy_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="person_id" Type="int" Nullable="false" />
+          <Property Name="abilitiy" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Languages">
+          <Key>
+            <PropertyRef Name="Language_id" />
+          </Key>
+          <Property Name="Language_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Language" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Person_Expertise">
+          <Key>
+            <PropertyRef Name="Person_id" />
+            <PropertyRef Name="Expertise_id" />
+          </Key>
+          <Property Name="Person_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Expertise_id" Type="int" Nullable="false" />
+          <Property Name="Grade" Type="int" />
+        </EntityType>
+        <EntityType Name="Person_Language">
+          <Key>
+            <PropertyRef Name="Person_id" />
+            <PropertyRef Name="Language_id" />
+          </Key>
+          <Property Name="Person_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Language_id" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Persons">
+          <Key>
+            <PropertyRef Name="Person_Id" />
+          </Key>
+          <Property Name="Person_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="FirstName" Type="varchar" MaxLength="50" />
+          <Property Name="LastName" Type="varchar" MaxLength="50" />
+          <Property Name="Adress" Type="varchar" MaxLength="50" />
+          <Property Name="Phonenumber" Type="varchar" MaxLength="50" />
+          <Property Name="Email" Type="varchar" MaxLength="100" />
+          <Property Name="Birthdate" Type="date" />
+          <Property Name="Nationality" Type="varchar" MaxLength="50" />
+          <Property Name="Driver_license" Type="bit" />
+          <Property Name="Picture" Type="varchar" MaxLength="100" />
+          <Property Name="Profile_text" Type="varchar" MaxLength="2500" />
+        </EntityType>
+        <Association Name="FK__Education__Perso__30F848ED">
+          <End Role="Persons" Type="Self.Persons" Multiplicity="1" />
+          <End Role="Educations" Type="Self.Educations" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Persons">
+              <PropertyRef Name="Person_Id" />
+            </Principal>
+            <Dependent Role="Educations">
+              <PropertyRef Name="Person_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Employmen__Perso__300424B4">
+          <End Role="Persons" Type="Self.Persons" Multiplicity="1" />
+          <End Role="Employments" Type="Self.Employments" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Persons">
+              <PropertyRef Name="Person_Id" />
+            </Principal>
+            <Dependent Role="Employments">
+              <PropertyRef Name="Person_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Expertise__Compe__4BAC3F29">
+          <End Role="Competences" Type="Self.Competences" Multiplicity="1" />
+          <End Role="Expertises" Type="Self.Expertises" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Competences">
+              <PropertyRef Name="Competence_id" />
+            </Principal>
+            <Dependent Role="Expertises">
+              <PropertyRef Name="Competence_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__key_abili__perso__52593CB8">
+          <End Role="Persons" Type="Self.Persons" Multiplicity="1" />
+          <End Role="key_abilitiy" Type="Self.key_abilitiy" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Persons">
+              <PropertyRef Name="Person_Id" />
+            </Principal>
+            <Dependent Role="key_abilitiy">
+              <PropertyRef Name="person_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Person_Ex__Exper__4F7CD00D">
+          <End Role="Expertises" Type="Self.Expertises" Multiplicity="1" />
+          <End Role="Person_Expertise" Type="Self.Person_Expertise" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Expertises">
+              <PropertyRef Name="Expertise_id" />
+            </Principal>
+            <Dependent Role="Person_Expertise">
+              <PropertyRef Name="Expertise_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Person_Ex__Perso__4E88ABD4">
+          <End Role="Persons" Type="Self.Persons" Multiplicity="1" />
+          <End Role="Person_Expertise" Type="Self.Person_Expertise" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Persons">
+              <PropertyRef Name="Person_Id" />
+            </Principal>
+            <Dependent Role="Person_Expertise">
+              <PropertyRef Name="Person_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Person_La__Langu__38996AB5">
+          <End Role="Languages" Type="Self.Languages" Multiplicity="1" />
+          <End Role="Person_Language" Type="Self.Person_Language" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Languages">
+              <PropertyRef Name="Language_id" />
+            </Principal>
+            <Dependent Role="Person_Language">
+              <PropertyRef Name="Language_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Person_La__Perso__398D8EEE">
+          <End Role="Persons" Type="Self.Persons" Multiplicity="1" />
+          <End Role="Person_Language" Type="Self.Person_Language" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Persons">
+              <PropertyRef Name="Person_Id" />
+            </Principal>
+            <Dependent Role="Person_Language">
+              <PropertyRef Name="Person_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="GruppLModelStoreContainer">
+          <EntitySet Name="Competences" EntityType="Self.Competences" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Customers" EntityType="Self.Customers" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Educations" EntityType="Self.Educations" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Employments" EntityType="Self.Employments" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Expertises" EntityType="Self.Expertises" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="key_abilitiy" EntityType="Self.key_abilitiy" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Languages" EntityType="Self.Languages" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Person_Expertise" EntityType="Self.Person_Expertise" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Person_Language" EntityType="Self.Person_Language" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Persons" EntityType="Self.Persons" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__Education__Perso__30F848ED" Association="Self.FK__Education__Perso__30F848ED">
+            <End Role="Persons" EntitySet="Persons" />
+            <End Role="Educations" EntitySet="Educations" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Employmen__Perso__300424B4" Association="Self.FK__Employmen__Perso__300424B4">
+            <End Role="Persons" EntitySet="Persons" />
+            <End Role="Employments" EntitySet="Employments" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Expertise__Compe__4BAC3F29" Association="Self.FK__Expertise__Compe__4BAC3F29">
+            <End Role="Competences" EntitySet="Competences" />
+            <End Role="Expertises" EntitySet="Expertises" />
+          </AssociationSet>
+          <AssociationSet Name="FK__key_abili__perso__52593CB8" Association="Self.FK__key_abili__perso__52593CB8">
+            <End Role="Persons" EntitySet="Persons" />
+            <End Role="key_abilitiy" EntitySet="key_abilitiy" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Person_Ex__Exper__4F7CD00D" Association="Self.FK__Person_Ex__Exper__4F7CD00D">
+            <End Role="Expertises" EntitySet="Expertises" />
+            <End Role="Person_Expertise" EntitySet="Person_Expertise" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Person_Ex__Perso__4E88ABD4" Association="Self.FK__Person_Ex__Perso__4E88ABD4">
+            <End Role="Persons" EntitySet="Persons" />
+            <End Role="Person_Expertise" EntitySet="Person_Expertise" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Person_La__Langu__38996AB5" Association="Self.FK__Person_La__Langu__38996AB5">
+            <End Role="Languages" EntitySet="Languages" />
+            <End Role="Person_Language" EntitySet="Person_Language" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Person_La__Perso__398D8EEE" Association="Self.FK__Person_La__Perso__398D8EEE">
+            <End Role="Persons" EntitySet="Persons" />
+            <End Role="Person_Language" EntitySet="Person_Language" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="GruppLModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Competences">
+          <Key>
+            <PropertyRef Name="Competence_id" />
+          </Key>
+          <Property Name="Competence_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Competence" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Expertises" Relationship="Self.FK__Expertise__Compe__4BAC3F29" FromRole="Competences" ToRole="Expertises" />
+        </EntityType>
+        <EntityType Name="Customers">
+          <Key>
+            <PropertyRef Name="Customer_id" />
+          </Key>
+          <Property Name="Customer_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FirstName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="LastName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Buisness" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Adress" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Educations">
+          <Key>
+            <PropertyRef Name="Education_id" />
+          </Key>
+          <Property Name="Education_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Person_ID" Type="Int32" Nullable="false" />
+          <Property Name="Educational_institution" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Educational_program" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Diploma" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="End_date" Type="DateTime" Precision="0" />
+          <Property Name="Start_date" Type="DateTime" Precision="0" />
+          <NavigationProperty Name="Persons" Relationship="Self.FK__Education__Perso__30F848ED" FromRole="Educations" ToRole="Persons" />
+        </EntityType>
+        <EntityType Name="Employments">
+          <Key>
+            <PropertyRef Name="Employment_id" />
+          </Key>
+          <Property Name="Employment_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Person_Id" Type="Int32" Nullable="false" />
+          <Property Name="End_date" Type="DateTime" Precision="0" />
+          <Property Name="Start_date" Type="DateTime" Precision="0" />
+          <Property Name="Assignments" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Persons" Relationship="Self.FK__Employmen__Perso__300424B4" FromRole="Employments" ToRole="Persons" />
+        </EntityType>
+        <EntityType Name="Expertises">
+          <Key>
+            <PropertyRef Name="Expertise_id" />
+          </Key>
+          <Property Name="Expertise_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Competence_id" Type="Int32" Nullable="false" />
+          <Property Name="Competence" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Competences" Relationship="Self.FK__Expertise__Compe__4BAC3F29" FromRole="Expertises" ToRole="Competences" />
+          <NavigationProperty Name="Person_Expertise" Relationship="Self.FK__Person_Ex__Exper__4F7CD00D" FromRole="Expertises" ToRole="Person_Expertise" />
+        </EntityType>
+        <EntityType Name="key_abilitiy">
+          <Key>
+            <PropertyRef Name="key_abilitiy_id" />
+          </Key>
+          <Property Name="key_abilitiy_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="person_id" Type="Int32" Nullable="false" />
+          <Property Name="abilitiy" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Persons" Relationship="Self.FK__key_abili__perso__52593CB8" FromRole="key_abilitiy" ToRole="Persons" />
+        </EntityType>
+        <EntityType Name="Languages">
+          <Key>
+            <PropertyRef Name="Language_id" />
+          </Key>
+          <Property Name="Language_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Language" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Persons" Relationship="Self.Person_Language" FromRole="Languages" ToRole="Persons" />
+        </EntityType>
+        <EntityType Name="Person_Expertise">
+          <Key>
+            <PropertyRef Name="Person_id" />
+            <PropertyRef Name="Expertise_id" />
+          </Key>
+          <Property Name="Person_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Expertise_id" Type="Int32" Nullable="false" />
+          <Property Name="Grade" Type="Int32" />
+          <NavigationProperty Name="Expertises" Relationship="Self.FK__Person_Ex__Exper__4F7CD00D" FromRole="Person_Expertise" ToRole="Expertises" />
+          <NavigationProperty Name="Persons" Relationship="Self.FK__Person_Ex__Perso__4E88ABD4" FromRole="Person_Expertise" ToRole="Persons" />
+        </EntityType>
+        <EntityType Name="Persons">
+          <Key>
+            <PropertyRef Name="Person_Id" />
+          </Key>
+          <Property Name="Person_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FirstName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="LastName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Adress" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Phonenumber" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Email" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Birthdate" Type="DateTime" Precision="0" />
+          <Property Name="Nationality" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Driver_license" Type="Boolean" />
+          <Property Name="Picture" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Profile_text" Type="String" MaxLength="2500" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Educations" Relationship="Self.FK__Education__Perso__30F848ED" FromRole="Persons" ToRole="Educations" />
+          <NavigationProperty Name="Employments" Relationship="Self.FK__Employmen__Perso__300424B4" FromRole="Persons" ToRole="Employments" />
+          <NavigationProperty Name="key_abilitiy" Relationship="Self.FK__key_abili__perso__52593CB8" FromRole="Persons" ToRole="key_abilitiy" />
+          <NavigationProperty Name="Person_Expertise" Relationship="Self.FK__Person_Ex__Perso__4E88ABD4" FromRole="Persons" ToRole="Person_Expertise" />
+          <NavigationProperty Name="Languages" Relationship="Self.Person_Language" FromRole="Persons" ToRole="Languages" />
+        </EntityType>
+        <Association Name="FK__Expertise__Compe__4BAC3F29">
+          <End Role="Competences" Type="Self.Competences" Multiplicity="1" />
+          <End Role="Expertises" Type="Self.Expertises" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Competences">
+              <PropertyRef Name="Competence_id" />
+            </Principal>
+            <Dependent Role="Expertises">
+              <PropertyRef Name="Competence_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Education__Perso__30F848ED">
+          <End Role="Persons" Type="Self.Persons" Multiplicity="1" />
+          <End Role="Educations" Type="Self.Educations" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Persons">
+              <PropertyRef Name="Person_Id" />
+            </Principal>
+            <Dependent Role="Educations">
+              <PropertyRef Name="Person_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Employmen__Perso__300424B4">
+          <End Role="Persons" Type="Self.Persons" Multiplicity="1" />
+          <End Role="Employments" Type="Self.Employments" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Persons">
+              <PropertyRef Name="Person_Id" />
+            </Principal>
+            <Dependent Role="Employments">
+              <PropertyRef Name="Person_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Person_Ex__Exper__4F7CD00D">
+          <End Role="Expertises" Type="Self.Expertises" Multiplicity="1" />
+          <End Role="Person_Expertise" Type="Self.Person_Expertise" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Expertises">
+              <PropertyRef Name="Expertise_id" />
+            </Principal>
+            <Dependent Role="Person_Expertise">
+              <PropertyRef Name="Expertise_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__key_abili__perso__52593CB8">
+          <End Role="Persons" Type="Self.Persons" Multiplicity="1" />
+          <End Role="key_abilitiy" Type="Self.key_abilitiy" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Persons">
+              <PropertyRef Name="Person_Id" />
+            </Principal>
+            <Dependent Role="key_abilitiy">
+              <PropertyRef Name="person_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Person_Ex__Perso__4E88ABD4">
+          <End Role="Persons" Type="Self.Persons" Multiplicity="1" />
+          <End Role="Person_Expertise" Type="Self.Person_Expertise" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Persons">
+              <PropertyRef Name="Person_Id" />
+            </Principal>
+            <Dependent Role="Person_Expertise">
+              <PropertyRef Name="Person_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Person_Language">
+          <End Role="Languages" Type="Self.Languages" Multiplicity="*" />
+          <End Role="Persons" Type="Self.Persons" Multiplicity="*" />
+        </Association>
+        <EntityContainer Name="GruppLEntities1" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Competences" EntityType="Self.Competences" />
+          <EntitySet Name="Customers" EntityType="Self.Customers" />
+          <EntitySet Name="Educations" EntityType="Self.Educations" />
+          <EntitySet Name="Employments" EntityType="Self.Employments" />
+          <EntitySet Name="Expertises" EntityType="Self.Expertises" />
+          <EntitySet Name="key_abilitiy" EntityType="Self.key_abilitiy" />
+          <EntitySet Name="Languages" EntityType="Self.Languages" />
+          <EntitySet Name="Person_Expertise" EntityType="Self.Person_Expertise" />
+          <EntitySet Name="Persons" EntityType="Self.Persons" />
+          <AssociationSet Name="FK__Expertise__Compe__4BAC3F29" Association="Self.FK__Expertise__Compe__4BAC3F29">
+            <End Role="Competences" EntitySet="Competences" />
+            <End Role="Expertises" EntitySet="Expertises" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Education__Perso__30F848ED" Association="Self.FK__Education__Perso__30F848ED">
+            <End Role="Persons" EntitySet="Persons" />
+            <End Role="Educations" EntitySet="Educations" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Employmen__Perso__300424B4" Association="Self.FK__Employmen__Perso__300424B4">
+            <End Role="Persons" EntitySet="Persons" />
+            <End Role="Employments" EntitySet="Employments" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Person_Ex__Exper__4F7CD00D" Association="Self.FK__Person_Ex__Exper__4F7CD00D">
+            <End Role="Expertises" EntitySet="Expertises" />
+            <End Role="Person_Expertise" EntitySet="Person_Expertise" />
+          </AssociationSet>
+          <AssociationSet Name="FK__key_abili__perso__52593CB8" Association="Self.FK__key_abili__perso__52593CB8">
+            <End Role="Persons" EntitySet="Persons" />
+            <End Role="key_abilitiy" EntitySet="key_abilitiy" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Person_Ex__Perso__4E88ABD4" Association="Self.FK__Person_Ex__Perso__4E88ABD4">
+            <End Role="Persons" EntitySet="Persons" />
+            <End Role="Person_Expertise" EntitySet="Person_Expertise" />
+          </AssociationSet>
+          <AssociationSet Name="Person_Language" Association="Self.Person_Language">
+            <End Role="Languages" EntitySet="Languages" />
+            <End Role="Persons" EntitySet="Persons" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="GruppLModelStoreContainer" CdmEntityContainer="GruppLEntities1">
+          <EntitySetMapping Name="Competences">
+            <EntityTypeMapping TypeName="GruppLModel.Competences">
+              <MappingFragment StoreEntitySet="Competences">
+                <ScalarProperty Name="Competence_id" ColumnName="Competence_id" />
+                <ScalarProperty Name="Competence" ColumnName="Competence" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Customers">
+            <EntityTypeMapping TypeName="GruppLModel.Customers">
+              <MappingFragment StoreEntitySet="Customers">
+                <ScalarProperty Name="Customer_id" ColumnName="Customer_id" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="Buisness" ColumnName="Buisness" />
+                <ScalarProperty Name="Adress" ColumnName="Adress" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Educations">
+            <EntityTypeMapping TypeName="GruppLModel.Educations">
+              <MappingFragment StoreEntitySet="Educations">
+                <ScalarProperty Name="Education_id" ColumnName="Education_id" />
+                <ScalarProperty Name="Person_ID" ColumnName="Person_ID" />
+                <ScalarProperty Name="Educational_institution" ColumnName="Educational_institution" />
+                <ScalarProperty Name="Educational_program" ColumnName="Educational_program" />
+                <ScalarProperty Name="Diploma" ColumnName="Diploma" />
+                <ScalarProperty Name="End_date" ColumnName="End_date" />
+                <ScalarProperty Name="Start_date" ColumnName="Start_date" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Employments">
+            <EntityTypeMapping TypeName="GruppLModel.Employments">
+              <MappingFragment StoreEntitySet="Employments">
+                <ScalarProperty Name="Employment_id" ColumnName="Employment_id" />
+                <ScalarProperty Name="Person_Id" ColumnName="Person_Id" />
+                <ScalarProperty Name="End_date" ColumnName="End_date" />
+                <ScalarProperty Name="Start_date" ColumnName="Start_date" />
+                <ScalarProperty Name="Assignments" ColumnName="Assignments" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Expertises">
+            <EntityTypeMapping TypeName="GruppLModel.Expertises">
+              <MappingFragment StoreEntitySet="Expertises">
+                <ScalarProperty Name="Expertise_id" ColumnName="Expertise_id" />
+                <ScalarProperty Name="Competence_id" ColumnName="Competence_id" />
+                <ScalarProperty Name="Competence" ColumnName="Competence" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="key_abilitiy">
+            <EntityTypeMapping TypeName="GruppLModel.key_abilitiy">
+              <MappingFragment StoreEntitySet="key_abilitiy">
+                <ScalarProperty Name="key_abilitiy_id" ColumnName="key_abilitiy_id" />
+                <ScalarProperty Name="person_id" ColumnName="person_id" />
+                <ScalarProperty Name="abilitiy" ColumnName="abilitiy" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Languages">
+            <EntityTypeMapping TypeName="GruppLModel.Languages">
+              <MappingFragment StoreEntitySet="Languages">
+                <ScalarProperty Name="Language_id" ColumnName="Language_id" />
+                <ScalarProperty Name="Language" ColumnName="Language" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Person_Expertise">
+            <EntityTypeMapping TypeName="GruppLModel.Person_Expertise">
+              <MappingFragment StoreEntitySet="Person_Expertise">
+                <ScalarProperty Name="Person_id" ColumnName="Person_id" />
+                <ScalarProperty Name="Expertise_id" ColumnName="Expertise_id" />
+                <ScalarProperty Name="Grade" ColumnName="Grade" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Persons">
+            <EntityTypeMapping TypeName="GruppLModel.Persons">
+              <MappingFragment StoreEntitySet="Persons">
+                <ScalarProperty Name="Person_Id" ColumnName="Person_Id" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="Adress" ColumnName="Adress" />
+                <ScalarProperty Name="Phonenumber" ColumnName="Phonenumber" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Birthdate" ColumnName="Birthdate" />
+                <ScalarProperty Name="Nationality" ColumnName="Nationality" />
+                <ScalarProperty Name="Driver_license" ColumnName="Driver_license" />
+                <ScalarProperty Name="Picture" ColumnName="Picture" />
+                <ScalarProperty Name="Profile_text" ColumnName="Profile_text" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <AssociationSetMapping Name="Person_Language" TypeName="GruppLModel.Person_Language" StoreEntitySet="Person_Language">
+            <EndProperty Name="Languages">
+              <ScalarProperty Name="Language_id" ColumnName="Language_id" />
+            </EndProperty>
+            <EndProperty Name="Persons">
+              <ScalarProperty Name="Person_Id" ColumnName="Person_id" />
+            </EndProperty>
+          </AssociationSetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
