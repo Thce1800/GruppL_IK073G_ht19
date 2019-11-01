@@ -24,7 +24,7 @@ namespace GruppL_IK073G_ht19.Models
             this.Languages = new HashSet<Languages>();
         }
     
-        public int Person_Id { get; set; }
+        public int Person_id { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public string Adress { get; set; }

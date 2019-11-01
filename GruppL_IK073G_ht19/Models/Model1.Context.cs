@@ -13,10 +13,10 @@ namespace GruppL_IK073G_ht19.Models
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class GruppLEntities1 : DbContext
+    public partial class gruppldbEntities : DbContext
     {
-        public GruppLEntities1()
-            : base("name=GruppLEntities1")
+        public gruppldbEntities()
+            : base("name=gruppldbEntities")
         {
         }
     
@@ -34,5 +34,6 @@ namespace GruppL_IK073G_ht19.Models
         public virtual DbSet<Languages> Languages { get; set; }
         public virtual DbSet<Person_Expertise> Person_Expertise { get; set; }
         public virtual DbSet<Persons> Persons { get; set; }
+        public virtual DbSet<database_firewall_rules> database_firewall_rules { get; set; }
     }
 }
