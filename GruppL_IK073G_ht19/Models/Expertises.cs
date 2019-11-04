@@ -22,7 +22,7 @@ namespace GruppL_IK073G_ht19.Models
     
         public int Expertise_id { get; set; }
         public int Competence_id { get; set; }
-        public string Competence { get; set; }
+        public string Expertise { get; set; }
     
         public virtual Competences Competences { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
