@@ -245,10 +245,10 @@
     <Content Include="Views\Expertises\Details.cshtml" />
     <Content Include="Views\Expertises\Edit.cshtml" />
     <Content Include="Views\Expertises\Index.cshtml" />
+    <Content Include="Views\Customer\CustomerProfile.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\Customer\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
