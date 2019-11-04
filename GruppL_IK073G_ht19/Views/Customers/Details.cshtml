@@ -1,0 +1,64 @@
+﻿@model GruppL_IK073G_ht19.Models.Customers
+
+@{
+    ViewBag.Title = "Details";
+}
+
+    <div class="jumbotron">
+        <h2>@Html.DisplayFor(model => model.Business)</h2>
+        <h4>Profil för @Html.DisplayFor(model => model.FirstName) @Html.DisplayFor(model => model.LastName)</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                Förnamn
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.FirstName)
+            </dd>
+
+            <dt>
+                Efternamn
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.LastName)
+            </dd>
+
+            <dt>
+                Företag
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Business)
+            </dd>
+
+            <dt>
+                Adress
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Adress)
+            </dd>
+
+            <dt>
+                E-post
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Email)
+            </dd>
+
+            <dt>
+                Telefonnummer
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Phonenumber)
+            </dd>
+
+        </dl>
+    </div>
+<p>
+    @Html.ActionLink("Back to List", "Index")
+</p>
