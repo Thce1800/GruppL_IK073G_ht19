@@ -1,0 +1,71 @@
+﻿* {
+  
+}
+body {
+    font-family: 'Inconsolata', monospace;
+}
+.clear {
+    clear: right;
+}
+.ikon {
+    text-align: center;
+    padding-top: 20px;
+    font-family: 'Sedgwick Ave Display', cursive;
+}
+.buttons {
+    float: left;
+    margin: 30px 160px 40px 30px;
+}
+.button1 {
+    margin: 10% 5% 1% 10%;
+    height: 30px;
+    width: 100px;
+    background: #dcdce0;
+    border: 1px solid black;
+    background: #FFF;
+    font-size: 15px;
+    padding: 6px;
+    color: black;
+    text-decoration: none;
+    margin: 25px 10px 10px 10px;
+}
+
+
+#login {
+    width: 20%;
+    height: 50%;
+    background: #dcdce0;
+    margin: 5% 10% 10% 40%;
+    border: 5px double;
+    box-shadow: 0px 10px 13px -7px #000000, 5px 5px 8px 5px rgba(0,0,0,0.48);
+    box-shadow: 0px 10px 13px -7px #000000, 5px 5px 8px 5px rgba(0,0,0,0.48);
+}
+#login label span {
+    cursor: pointer;
+    color: black;
+    display: block;
+    margin: 5px 0;
+    font-weight: 900;
+    margin: 5% 5% 1% 10%;
+}
+#loginRubrik {
+    color: black;
+    margin: 5% 5% 20% 7%;
+    text-align: center;
+
+}
+
+input {
+    border: 1px solid grey;
+    width: 50%;
+    height: 20px;
+    margin: 0% 5% 1% 10%;
+    color: black;
+    padding: 1%;
+}
+.new{
+    margin-left: 40px;
+    padding-top: 20px;
+    padding-right: 10px;
+}
+
