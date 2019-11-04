@@ -4,63 +4,61 @@
     ViewBag.Title = "Details";
 }
 
-<h2>Profil för @Html.DisplayFor(model => model.FirstName) @Html.DisplayFor(model => model.LastName)</h2>
+    <div class="jumbotron">
+        <h2>@Html.DisplayFor(model => model.Business)</h2>
+        <h4>Profil för @Html.DisplayFor(model => model.FirstName) @Html.DisplayFor(model => model.LastName)</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                Förnamn
+            </dt>
 
-<div class="jumbotron">
-    <h4>@Html.DisplayFor(model => model.Business)</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            Förnamn
-        </dt>
+            <dd>
+                @Html.DisplayFor(model => model.FirstName)
+            </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.FirstName)
-        </dd>
+            <dt>
+                Efternamn
+            </dt>
 
-        <dt>
-            Efternamn
-        </dt>
+            <dd>
+                @Html.DisplayFor(model => model.LastName)
+            </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.LastName)
-        </dd>
+            <dt>
+                Företag
+            </dt>
 
-        <dt>
-            Företag
-        </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Business)
+            </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.Business)
-        </dd>
+            <dt>
+                Adress
+            </dt>
 
-        <dt>
-            Adress
-        </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Adress)
+            </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.Adress)
-        </dd>
+            <dt>
+                E-post
+            </dt>
 
-        <dt>
-            E-post
-        </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Email)
+            </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.Email)
-        </dd>
+            <dt>
+                Telefonnummer
+            </dt>
 
-        <dt>
-            Telefonnummer
-        </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Phonenumber)
+            </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.Phonenumber)
-        </dd>
-
-    </dl>
-</div>
+        </dl>
+    </div>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.Customer_id }) |
     @Html.ActionLink("Back to List", "Index")
 </p>
