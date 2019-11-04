@@ -13,10 +13,10 @@ namespace GruppL_IK073G_ht19.Models
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class gruppldbEntities : DbContext
+    public partial class gruppldbEntities1 : DbContext
     {
-        public gruppldbEntities()
-            : base("name=gruppldbEntities")
+        public gruppldbEntities1()
+            : base("name=gruppldbEntities1")
         {
         }
     

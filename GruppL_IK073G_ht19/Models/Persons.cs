@@ -33,7 +33,6 @@ namespace GruppL_IK073G_ht19.Models
         public Nullable<System.DateTime> Birthdate { get; set; }
         public string Nationality { get; set; }
         public Nullable<bool> Driver_license { get; set; }
-        public string Picture { get; set; }
         public string Profile_text { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

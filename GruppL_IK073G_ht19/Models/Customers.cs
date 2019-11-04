@@ -17,8 +17,9 @@ namespace GruppL_IK073G_ht19.Models
         public int Customer_id { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
-        public string Buisness { get; set; }
+        public string Business { get; set; }
         public string Adress { get; set; }
         public string Email { get; set; }
+        public string Phonenumber { get; set; }
     }
 }

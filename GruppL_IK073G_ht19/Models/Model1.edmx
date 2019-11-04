@@ -19,9 +19,10 @@
           <Property Name="Customer_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="FirstName" Type="varchar" MaxLength="50" />
           <Property Name="LastName" Type="varchar" MaxLength="50" />
-          <Property Name="Buisness" Type="varchar" MaxLength="50" />
+          <Property Name="Business" Type="varchar" MaxLength="50" />
           <Property Name="Adress" Type="varchar" MaxLength="50" />
           <Property Name="Email" Type="varchar" MaxLength="50" />
+          <Property Name="Phonenumber" Type="varchar" MaxLength="50" />
         </EntityType>
         <EntityType Name="Educations">
           <Key>
@@ -51,7 +52,7 @@
           </Key>
           <Property Name="Expertise_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Competence_id" Type="int" Nullable="false" />
-          <Property Name="Competence" Type="varchar" MaxLength="50" />
+          <Property Name="Expertise" Type="varchar" MaxLength="50" />
         </EntityType>
         <EntityType Name="key_abilitiy">
           <Key>
@@ -98,7 +99,6 @@
           <Property Name="Birthdate" Type="date" />
           <Property Name="Nationality" Type="varchar" MaxLength="50" />
           <Property Name="Driver_license" Type="bit" />
-          <Property Name="Picture" Type="varchar" MaxLength="100" />
           <Property Name="Profile_text" Type="varchar" MaxLength="2500" />
         </EntityType>
         <!--Errors Found During Generation:
@@ -289,9 +289,10 @@ warning 6002: The table/view 'gruppldb.sys.database_firewall_rules' does not hav
           <Property Name="Customer_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="FirstName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="LastName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="Buisness" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Business" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="Adress" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Phonenumber" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="Educations">
           <Key>
@@ -323,7 +324,7 @@ warning 6002: The table/view 'gruppldb.sys.database_firewall_rules' does not hav
           </Key>
           <Property Name="Expertise_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Competence_id" Type="Int32" Nullable="false" />
-          <Property Name="Competence" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Expertise" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="Competences" Relationship="Self.FK__Expertise__Compe__6477ECF3" FromRole="Expertises" ToRole="Competences" />
           <NavigationProperty Name="Person_Expertise" Relationship="Self.FK__Person_Ex__Exper__68487DD7" FromRole="Expertises" ToRole="Person_Expertise" />
         </EntityType>
@@ -368,7 +369,6 @@ warning 6002: The table/view 'gruppldb.sys.database_firewall_rules' does not hav
           <Property Name="Birthdate" Type="DateTime" Precision="0" />
           <Property Name="Nationality" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="Driver_license" Type="Boolean" />
-          <Property Name="Picture" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
           <Property Name="Profile_text" Type="String" MaxLength="2500" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="Educations" Relationship="Self.FK__Education__Perso__6B24EA82" FromRole="Persons" ToRole="Educations" />
           <NavigationProperty Name="Employments" Relationship="Self.FK__Employmen__Perso__6E01572D" FromRole="Persons" ToRole="Employments" />
@@ -468,7 +468,7 @@ warning 6002: The table/view 'gruppldb.sys.database_firewall_rules' does not hav
           <End Role="Languages" Type="Self.Languages" Multiplicity="*" />
           <End Role="Persons" Type="Self.Persons" Multiplicity="*" />
         </Association>
-        <EntityContainer Name="gruppldbEntities" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="gruppldbEntities1" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Competences" EntityType="Self.Competences" />
           <EntitySet Name="Customers" EntityType="Self.Customers" />
           <EntitySet Name="Educations" EntityType="Self.Educations" />
@@ -513,7 +513,7 @@ warning 6002: The table/view 'gruppldb.sys.database_firewall_rules' does not hav
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="gruppldbModelStoreContainer" CdmEntityContainer="gruppldbEntities">
+        <EntityContainerMapping StorageEntityContainer="gruppldbModelStoreContainer" CdmEntityContainer="gruppldbEntities1">
           <EntitySetMapping Name="Competences">
             <EntityTypeMapping TypeName="gruppldbModel.Competences">
               <MappingFragment StoreEntitySet="Competences">
@@ -528,9 +528,10 @@ warning 6002: The table/view 'gruppldb.sys.database_firewall_rules' does not hav
                 <ScalarProperty Name="Customer_id" ColumnName="Customer_id" />
                 <ScalarProperty Name="FirstName" ColumnName="FirstName" />
                 <ScalarProperty Name="LastName" ColumnName="LastName" />
-                <ScalarProperty Name="Buisness" ColumnName="Buisness" />
+                <ScalarProperty Name="Business" ColumnName="Business" />
                 <ScalarProperty Name="Adress" ColumnName="Adress" />
                 <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Phonenumber" ColumnName="Phonenumber" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -563,7 +564,7 @@ warning 6002: The table/view 'gruppldb.sys.database_firewall_rules' does not hav
               <MappingFragment StoreEntitySet="Expertises">
                 <ScalarProperty Name="Expertise_id" ColumnName="Expertise_id" />
                 <ScalarProperty Name="Competence_id" ColumnName="Competence_id" />
-                <ScalarProperty Name="Competence" ColumnName="Competence" />
+                <ScalarProperty Name="Expertise" ColumnName="Expertise" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -605,7 +606,6 @@ warning 6002: The table/view 'gruppldb.sys.database_firewall_rules' does not hav
                 <ScalarProperty Name="Birthdate" ColumnName="Birthdate" />
                 <ScalarProperty Name="Nationality" ColumnName="Nationality" />
                 <ScalarProperty Name="Driver_license" ColumnName="Driver_license" />
-                <ScalarProperty Name="Picture" ColumnName="Picture" />
                 <ScalarProperty Name="Profile_text" ColumnName="Profile_text" />
               </MappingFragment>
             </EntityTypeMapping>
