@@ -28,7 +28,6 @@ namespace GruppL_IK073G_ht19.Controllers
 
             return View();
         }
-        //testar GitHub
-        //Ser du det här då?
+        //testar GitHub Ser du detta Ninni
     }
 }
