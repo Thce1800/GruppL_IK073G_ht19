@@ -6,7 +6,14 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
+using System.IO;
 using GruppL_IK073G_ht19.Models;
+using iTextSharp.text;
+using iTextSharp.text.pdf;
+using iTextSharp.tool.xml;
+using System.Text;
+using iTextSharp.text.html.simpleparser;
+
 
 namespace GruppL_IK073G_ht19.Controllers
 {
@@ -122,6 +129,23 @@ namespace GruppL_IK073G_ht19.Controllers
                 db.Dispose();
             }
             base.Dispose(disposing);
+        }
+
+        //Exportera till PDF
+        [HttpPost]
+        [ValidateInput(false)]
+        public FileResult Export(string pdfHtml)
+        {
+            using (MemoryStream stream = new System.IO.MemoryStream())
+            {
+                StringReader sr = new StringReader(pdfHtml);
+                Document pdfDoc = new Document(PageSize.A4, 10f, 10f, 100f, 0f);
+                PdfWriter writer = PdfWriter.GetInstance(pdfDoc, stream);
+                pdfDoc.Open();
+                XMLWorkerHelper.GetInstance().ParseXHtml(writer, pdfDoc, sr);
+                pdfDoc.Close();
+                return File(stream.ToArray(), "application/pdf", "Grid.pdf");
+            }
         }
     }
 }

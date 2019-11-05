@@ -4,14 +4,15 @@
     ViewBag.Title = "Details";
 }
 
-<h2>Details</h2>
+<h2>@Html.DisplayNameFor(model => model.FirstName) @Html.DisplayNameFor(model => model.LastName)</h2>
 
 <div>
-    <h4>Persons</h4>
+
     <hr />
-    <dl class="dl-horizontal">
+    <dl class="dl-horizontal" id="pdf">
         <dt>
-            @Html.DisplayNameFor(model => model.FirstName)
+            Förnamn:
+            @*@Html.DisplayNameFor(model => model.FirstName)*@
         </dt>
 
         <dd>
@@ -19,7 +20,8 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.LastName)
+            Efternamn:
+            @*@Html.DisplayNameFor(model => model.LastName)*@
         </dt>
 
         <dd>
@@ -27,7 +29,8 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.Adress)
+            Adress:
+            @*@Html.DisplayNameFor(model => model.Adress)*@
         </dt>
 
         <dd>
@@ -35,7 +38,8 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.Phonenumber)
+            Telefonnummer:
+            @*@Html.DisplayNameFor(model => model.Phonenumber)*@
         </dt>
 
         <dd>
@@ -43,7 +47,8 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.Email)
+            E-post:
+            @*@Html.DisplayNameFor(model => model.Email)*@
         </dt>
 
         <dd>
@@ -51,7 +56,8 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.Birthdate)
+            Födelsedata:
+            @*@Html.DisplayNameFor(model => model.Birthdate)*@
         </dt>
 
         <dd>
@@ -59,7 +65,8 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.Nationality)
+            Nationalitet:
+            @*@Html.DisplayNameFor(model => model.Nationality)*@
         </dt>
 
         <dd>
@@ -67,7 +74,8 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.Driver_license)
+            Körkort:
+            @*@Html.DisplayNameFor(model => model.Driver_license)*@
         </dt>
 
         <dd>
@@ -75,7 +83,8 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.Profile_text)
+            Profiltext:
+            @*@Html.DisplayNameFor(model => model.Profile_text)*@
         </dt>
 
         <dd>
@@ -84,7 +93,22 @@
 
     </dl>
 </div>
+
+@using (Html.BeginForm("Export", "Persons", FormMethod.Post))
+{
+    <input type="hidden" name="pdfHtml" />
+    <input type="submit" id="btnSubmit" value="Exportera till PDF" />
+}
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+<script type="text/javascript">
+    $(function () {
+        $("#btnSubmit").click(function () {
+            $("input[name='pdfHtml']").val($("#pdf").html());
+          
+        });
+    });
+</script>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.Person_id }) |
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Redigera", "Edit", new { id = Model.Person_id }) |
+    @Html.ActionLink("Tillbaka", "Index")
 </p>
