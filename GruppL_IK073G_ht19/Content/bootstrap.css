@@ -9,6 +9,15 @@ html {
   -webkit-text-size-adjust: 100%;
       -ms-text-size-adjust: 100%;
 }
+.button1
+ {
+    background-color: cadetblue;
+    color: black;
+    padding: 15px 20px;
+    margin: 8px 0;
+    cursor: pointer;
+    width: 20%;
+}
 body {
   margin: 0;
 }

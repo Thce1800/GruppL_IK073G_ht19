@@ -15,7 +15,14 @@
 .dl-horizontal dt {
     white-space: normal;
 }
-
+.buttonPdf {
+    background-color: cadetblue;
+    color: black;
+    padding: 15px 20px;
+    margin: 8px 0;
+    cursor: pointer;
+    width: 20%;
+}
 /* Set width on the form input elements since they're 100% wide by default */
 input,
 select,
