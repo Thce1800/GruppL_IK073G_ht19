@@ -7,10 +7,14 @@ body {
 .clear {
     clear: right;
 }
+.head1{
+    background: #000;
+}
 .ikon {
     text-align: center;
     padding-top: 20px;
     font-family: 'Sedgwick Ave Display', cursive;
+    color: #FFF;
 }
 .buttons {
     float: left;
