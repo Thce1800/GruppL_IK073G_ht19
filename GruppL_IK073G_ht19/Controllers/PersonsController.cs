@@ -6,7 +6,14 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
+using System.IO;
 using GruppL_IK073G_ht19.Models;
+using iTextSharp.text;
+using iTextSharp.text.pdf;
+using iTextSharp.tool.xml;
+using System.Text;
+using iTextSharp.text.html.simpleparser;
+
 
 namespace GruppL_IK073G_ht19.Controllers
 {
