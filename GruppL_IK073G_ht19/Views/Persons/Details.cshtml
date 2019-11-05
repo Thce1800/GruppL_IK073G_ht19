@@ -4,14 +4,15 @@
     ViewBag.Title = "Details";
 }
 
-<h2>Details</h2>
+<h2>@Html.DisplayNameFor(model => model.FirstName) @Html.DisplayNameFor(model => model.LastName)</h2>
 
 <div>
-    <h4>Persons</h4>
+    
     <hr />
     <dl class="dl-horizontal">
         <dt>
-            @Html.DisplayNameFor(model => model.FirstName)
+            Förnamn:
+            @*@Html.DisplayNameFor(model => model.FirstName)*@
         </dt>
 
         <dd>
@@ -19,7 +20,8 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.LastName)
+            Efternamn:
+            @*@Html.DisplayNameFor(model => model.LastName)*@
         </dt>
 
         <dd>
@@ -27,7 +29,8 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.Adress)
+            Adress:
+            @*@Html.DisplayNameFor(model => model.Adress)*@
         </dt>
 
         <dd>
@@ -35,7 +38,8 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.Phonenumber)
+            Telefonnummer:
+            @*@Html.DisplayNameFor(model => model.Phonenumber)*@
         </dt>
 
         <dd>
@@ -43,7 +47,8 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.Email)
+            E-post:
+            @*@Html.DisplayNameFor(model => model.Email)*@
         </dt>
 
         <dd>
@@ -51,7 +56,8 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.Birthdate)
+            Födelsedata:
+            @*@Html.DisplayNameFor(model => model.Birthdate)*@
         </dt>
 
         <dd>
@@ -59,7 +65,8 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.Nationality)
+            Nationalitet:
+            @*@Html.DisplayNameFor(model => model.Nationality)*@
         </dt>
 
         <dd>
@@ -67,7 +74,8 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.Driver_license)
+            Körkort:
+            @*@Html.DisplayNameFor(model => model.Driver_license)*@
         </dt>
 
         <dd>
@@ -75,7 +83,8 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.Profile_text)
+            Profiltext:
+            @*@Html.DisplayNameFor(model => model.Profile_text)*@
         </dt>
 
         <dd>
@@ -85,6 +94,6 @@
     </dl>
 </div>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.Person_id }) |
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Redigera", "Edit", new { id = Model.Person_id }) |
+    @Html.ActionLink("Tillbaka", "Index")
 </p>
