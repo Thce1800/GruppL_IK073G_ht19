@@ -134,11 +134,11 @@ namespace GruppL_IK073G_ht19.Controllers
         //Exportera till PDF
         [HttpPost]
         [ValidateInput(false)]
-        public FileResult Export(string GridHtml)
+        public FileResult Export(string pdfHtml)
         {
             using (MemoryStream stream = new System.IO.MemoryStream())
             {
-                StringReader sr = new StringReader(GridHtml);
+                StringReader sr = new StringReader(pdfHtml);
                 Document pdfDoc = new Document(PageSize.A4, 10f, 10f, 100f, 0f);
                 PdfWriter writer = PdfWriter.GetInstance(pdfDoc, stream);
                 pdfDoc.Open();
