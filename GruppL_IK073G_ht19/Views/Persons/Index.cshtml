@@ -82,28 +82,53 @@
 </table>
 
 <div class="container2">
-    <input type="search" placeholder="Sök här..." id="site-search">
+    <input class="search-input" type="search" placeholder="Sök här..." id="site-search">
 
-    <div class="suggestions2">
-        <div>Programmerare</div>
-        <div>Grafiskdesigner</div>
-        <div>Projektledare</div>
-        <div>C#</div>
-        <div>Java</div>
-        <div>Python</div>
-        <div>Photoshop</div>
-        <div>Adobe Xd</div>
-        <div>Mockups</div>
-        <div>Officepaketet</div>
-        <div>Trello</div>
-        <div>Miro</div>
+    <div class="suggestions">
+       
     </div>
 </div>
 
 <script>
-    const 
+    const searches = [
+        { name: "Programmerare" },
+        { name: "Grafiskdesigner" },
+        { name: "Projektledare" },
+        { name: "C#" },
+        { name: "Java" },
+        { name: "Python" },
+        { name: "Photoshop" },
+        { name: "Adobe Xd" },
+        { name: "Mockups" },
+        { name: "Officepaketet" },
+        { name: "Trello" },
+        { name: "Miro" },
+    ];
 
+    const searchInput = document.querySelector(".search-input");
+    const suggestionsPanel = document.querySelector(".suggestions");
 
+    searchInput.addEventListener("keyup", function ()
+    {
+        const input = searchInput.value;
+        
+        suggestionsPanel.innerHTML = "";
+        const suggestions = searches.filter(function (search) {
+            return search.name.toLowerCase().startsWith(input);
+        });
+        suggestions.forEach(function (suggested)
+        {
+            const div = document.createElement("div");
+            div.innerHTML = suggested.name;
+            suggestionsPanel.appendChild(div);
+
+        });
+        if (input == "")
+        {
+            suggestionsPanel.innerHTML = "";
+        }
+
+    })
 </script>
 
 @*<button>Sök</button>*@
