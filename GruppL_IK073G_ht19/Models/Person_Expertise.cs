@@ -14,6 +14,7 @@ namespace GruppL_IK073G_ht19.Models
     
     public partial class Person_Expertise
     {
+        
         public int Person_id { get; set; }
         public int Expertise_id { get; set; }
         public Nullable<int> Grade { get; set; }

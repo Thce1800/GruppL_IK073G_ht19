@@ -19,6 +19,7 @@ namespace GruppL_IK073G_ht19.Controllers
 {
     public class PersonsController : Controller
     {
+        
         private gruppldbEntities1 db = new gruppldbEntities1();
 
         // GET: Persons
@@ -45,7 +46,9 @@ namespace GruppL_IK073G_ht19.Controllers
                 Persons = persons,
                 Educations=p.Educations(id),
                 Employments = p.FindEmployment(id),
-                key_Abilitiys=p.KeyAbilitiys(id)
+                key_Abilitiys=p.KeyAbilitiys(id),
+                PersonExpertises=p.PersonExpertises(id),
+                Languages=p.Languages(id)
                 
             };
 

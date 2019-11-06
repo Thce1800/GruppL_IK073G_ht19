@@ -19,9 +19,9 @@ namespace GruppL_IK073G_ht19.Models
         {
             this.Educations = new HashSet<Educations>();
             this.Employments = new HashSet<Employments>();
-            this.key_abilitiy = new HashSet<key_abilitiy>();
             this.Person_Expertise = new HashSet<Person_Expertise>();
-            this.Languages = new HashSet<Languages>();
+            this.key_abilitiy = new HashSet<key_abilitiy>();
+            this.Languages1 = new HashSet<Languages>();
         }
     
         public int Person_id { get; set; }
@@ -40,10 +40,10 @@ namespace GruppL_IK073G_ht19.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Employments> Employments { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<key_abilitiy> key_abilitiy { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Person_Expertise> Person_Expertise { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Languages> Languages { get; set; }
+        public virtual ICollection<key_abilitiy> key_abilitiy { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Languages> Languages1 { get; set; }
     }
 }

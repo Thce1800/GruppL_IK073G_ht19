@@ -197,6 +197,67 @@
 
 </table>
 
+<table class="table">
+    <tr>
+        <th>
+            Expertis
+        </th>
+        <th>
+            Gradering
+        </th>
+        <th></th>
+    </tr>
+
+
+    @foreach (var item in Model.PersonExpertises)
+    {
+
+        <tr>
+
+            <td>
+                @Html.DisplayFor(modelItem => item.Expertises)
+
+            </td>
+
+            <td>
+                @Html.DisplayFor(modelItem => item.Grade)
+
+            </td>
+        </tr>
+    }
+
+</table>
+
+<table class="table">
+    <tr>
+        <th>
+            Språk
+        </th>
+        <th>
+            Gradering
+        </th>
+        <th></th>
+    </tr>
+
+
+    @foreach (var item in Model.Languages)
+    {
+
+        <tr>
+
+            <td>
+                @Html.DisplayFor(modelItem => item.Language)
+
+            </td>
+
+            <td>
+                @Html.DisplayFor(modelItem => item.Grade)
+
+            </td>
+        </tr>
+    }
+
+</table>
 
 <div>
     <br />
