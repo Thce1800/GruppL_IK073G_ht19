@@ -44,7 +44,9 @@ namespace GruppL_IK073G_ht19.Controllers
             {
                 Persons = persons,
                 Educations=p.Educations(id),
-                Employments = p.FindEmployment(id)
+                Employments = p.FindEmployment(id),
+                key_Abilitiys=p.KeyAbilitiys(id)
+                
             };
 
 

@@ -35,8 +35,8 @@ namespace GruppL_IK073G_ht19.Controllers
         {
             var keyAbilitiys = db.key_abilitiy.ToList();
 
-            var keyAbilitysID = keyAbilitiys.Where(s => s.person_id == id).ToList();
-            return keyAbilitysID;
+            var keyAbilitysId = keyAbilitiys.Where(s => s.person_id == id).ToList();
+            return keyAbilitysId;
         }
 
         public List <Person_Expertise> PersonExpertises(int? id)
