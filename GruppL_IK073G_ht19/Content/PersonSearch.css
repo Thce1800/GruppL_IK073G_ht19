@@ -16,12 +16,12 @@
     border: 2px solid #999;
     width: 100%;
 }
-.suggestions2 {
+.suggestions {
     border-left: 2px solid #999;
     border-right: 2px solid #999;
     border-bottom: 2px solid #999;
 }
-.suggestions2 > div 
+.suggestions > div 
 {
         padding: 15px;
         font-size: 15px;
@@ -29,7 +29,7 @@
         border-top: 1px solid #666;
         cursor: pointer;
 }
- .suggestions2 > div:hover
+ .suggestions > div:hover
  {
      background-color: #999;
  } 
