@@ -148,6 +148,7 @@ namespace GruppL_IK073G_ht19.Controllers
         [ValidateInput(false)]
         public FileResult Export(string pdfHtml)
         {
+           // var cssText = "~/Content/Site.css"
             using (MemoryStream stream = new System.IO.MemoryStream())
             {
                 StringReader sr = new StringReader(pdfHtml);
@@ -159,5 +160,7 @@ namespace GruppL_IK073G_ht19.Controllers
                 return File(stream.ToArray(), "application/pdf", "Grid.pdf");
             }
         }
+
+
     }
 }
