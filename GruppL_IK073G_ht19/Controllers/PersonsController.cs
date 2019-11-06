@@ -43,6 +43,7 @@ namespace GruppL_IK073G_ht19.Controllers
             var viewModel = new PersonViewModels
             {
                 Persons = persons,
+                Educations=p.Educations(id),
                 Employments = p.FindEmployment(id)
             };
 
