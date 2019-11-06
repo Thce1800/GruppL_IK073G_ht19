@@ -1,4 +1,7 @@
-﻿@model GruppL_IK073G_ht19.Models.Persons
+﻿@model GruppL_IK073G_ht19.ViewModels.PersonViewModels
+@*@model GruppL_IK073G_ht19.Models.Persons*@
+
+@* Här är det något som ska ändras... Sen borde det kanske gå *@
 
 @{
     ViewBag.Title = "Details";
@@ -6,7 +9,7 @@
     <link rel="stylesheet" type="text/css" href="~/Content/Site.css">
 }
 
-<h2>@Html.DisplayNameFor(model => model.FirstName) @Html.DisplayNameFor(model => model.LastName)</h2>
+<h2>@Html.DisplayNameFor(model => model.Persons.FirstName) @Html.DisplayNameFor(model => model.Persons.LastName)</h2>
 
 <div>
 
@@ -18,7 +21,7 @@
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.FirstName)
+            @Html.DisplayFor(model => model.Persons.FirstName)
         </dd>
 
         <dt>
@@ -27,7 +30,7 @@
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.LastName)
+            @Html.DisplayFor(model => model.Persons.LastName)
         </dd>
 
         <dt>
@@ -36,7 +39,7 @@
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.Adress)
+            @Html.DisplayFor(model => model.Persons.Adress)
         </dd>
 
         <dt>
@@ -45,7 +48,7 @@
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.Phonenumber)
+            @Html.DisplayFor(model => model.Persons.Phonenumber)
         </dd>
 
         <dt>
@@ -54,7 +57,7 @@
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.Email)
+            @Html.DisplayFor(model => model.Persons.Email)
         </dd>
 
         <dt>
@@ -63,7 +66,7 @@
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.Birthdate)
+            @Html.DisplayFor(model => model.Persons.Birthdate)
         </dd>
 
         <dt>
@@ -72,7 +75,7 @@
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.Nationality)
+            @Html.DisplayFor(model => model.Persons.Nationality)
         </dd>
 
         <dt>
@@ -81,7 +84,7 @@
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.Driver_license)
+            @Html.DisplayFor(model => model.Persons.Driver_license)
         </dd>
 
         <dt>
@@ -90,14 +93,26 @@
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.Profile_text)
+            <textarea>
+            @Html.DisplayFor(model => model.Persons.Profile_text)
+
+            </textarea>
+        </dd>
+
+        <dt>
+            Arbete:
+        </dt>
+        <dd>
+            <ul>
+                <li>@Html.DisplayFor(model => model.Persons.Employments) </li>
+            </ul>
         </dd>
 
     </dl>
 </div>
 
 <p>
-    @Html.ActionLink("Redigera", "Edit", new { id = Model.Person_id }) |
+    @Html.ActionLink("Redigera", "Edit", new { id = Model.Persons.Person_id }) |
     @Html.ActionLink("Tillbaka", "Index")
 </p>
 
