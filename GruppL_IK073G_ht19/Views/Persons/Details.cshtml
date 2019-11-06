@@ -89,32 +89,112 @@
 
             </textarea>
             </dd>
-
-            <dt>
-                Arbete:
-            </dt>
-            <dd>
-                <table>
-                    @foreach (var item in Model.Employments)
-                    {
-                        <tr>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.Employment_id)
-
-                            </td>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.Assignments)
-
-                            </td>
-                        </tr>
-                    }
-
-                </table>
-            </dd>
-
         </dl>
     </div>
 </div>
+
+
+<table class="table">
+    <tr>
+        <th>
+            Arbetsuppgifter
+        </th>
+
+        <th>
+            Startdatum
+        </th>
+        <th>
+            Slutdatum
+        </th>
+        <th></th>
+    </tr>
+    @foreach (var item in Model.Employments)
+    {
+<tr>
+    <td>
+        @Html.DisplayFor(modelItem => item.Assignments)
+
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Start_date)
+
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.End_date)
+
+    </td>
+</tr>
+    }
+
+</table>
+
+<table class="table">
+    <tr>
+        <th>
+            Skola
+        </th>
+
+        <th>
+            Program
+        </th>
+        <th>
+            Diplom
+        </th>
+        <th>
+            Startdatum
+        </th>
+        <th>
+            Slutdatum
+        </th>
+        <th></th>
+    </tr>
+    @foreach (var item in Model.Educations)
+    {
+<tr>
+    <td>
+        @Html.DisplayFor(modelItem => item.Educational_institution)
+
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Educational_program)
+
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Diploma)
+
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Start_date)
+
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.End_date)
+
+    </td>
+</tr>
+    }
+
+</table>
+
+<table class="table">
+    <tr>
+        <th>
+            Kärnförmågor
+        </th>
+        <th></th>
+    </tr>
+    @foreach (var item in Model.key_Abilitiys)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.abilitiy)
+
+            </td>
+        </tr>
+    }
+
+</table>
+
 
 <div>
     <br />
