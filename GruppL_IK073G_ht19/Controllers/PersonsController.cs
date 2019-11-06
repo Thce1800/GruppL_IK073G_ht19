@@ -13,7 +13,7 @@ using iTextSharp.text.pdf;
 using iTextSharp.tool.xml;
 using System.Text;
 using iTextSharp.text.html.simpleparser;
-
+using GruppL_IK073G_ht19.ViewModels;
 
 namespace GruppL_IK073G_ht19.Controllers
 {
@@ -39,7 +39,15 @@ namespace GruppL_IK073G_ht19.Controllers
             {
                 return HttpNotFound();
             }
-            return View(persons);
+            PersonsOperation p = new PersonsOperation();
+            var viewModel = new PersonViewModels
+            {
+                Persons = persons,
+                Employments = p.FindEmployment(id)
+            };
+
+
+            return View(viewModel);
         }
 
         // GET: Persons/Create
@@ -77,7 +85,11 @@ namespace GruppL_IK073G_ht19.Controllers
             {
                 return HttpNotFound();
             }
+            //Educations educations = db.Educations
+
             return View(persons);
+
+
         }
 
         // POST: Persons/Edit/5
