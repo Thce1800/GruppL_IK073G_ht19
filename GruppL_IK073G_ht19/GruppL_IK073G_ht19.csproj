@@ -206,6 +206,7 @@
     <Content Include="Content\github-logo.png" />
     <Content Include="Content\linkedin.png" />
     <Content Include="Content\Login.css" />
+    <Content Include="Content\PersonSearch.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />

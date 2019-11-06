@@ -2,6 +2,7 @@
 
 @{
     ViewBag.Title = "Index";
+    <link rel="stylesheet" type="text/css" href="~/Content/PersonSearch.css">
 
 }
 
@@ -41,7 +42,7 @@
     </tr>
 
     @foreach (var item in Model)
-     {
+    {
         <tr>
             <td>
                 @Html.DisplayFor(modelItem => item.FirstName)
@@ -76,19 +77,33 @@
 
             </td>
         </tr>
-     }
+    }
 
 </table>
 
+<div class="container2">
+    <input type="search" placeholder="Sök här..." id="site-search">
 
-<input type="search" placeholder="Sök här..." id="site-search" name="q"
-       aria-label="Search through site content">
-
-<div class="suggestions">
-    <div>Webbdesigner</div>
-    <div>Systemutvecklare</div>
-    <div>Projektledare</div>
-    <div>Designer</div>
+    <div class="suggestions2">
+        <div>Programmerare</div>
+        <div>Grafiskdesigner</div>
+        <div>Projektledare</div>
+        <div>C#</div>
+        <div>Java</div>
+        <div>Python</div>
+        <div>Photoshop</div>
+        <div>Adobe Xd</div>
+        <div>Mockups</div>
+        <div>Officepaketet</div>
+        <div>Trello</div>
+        <div>Miro</div>
+    </div>
 </div>
+
+<script>
+    const 
+
+
+</script>
 
 @*<button>Sök</button>*@
