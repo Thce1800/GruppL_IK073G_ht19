@@ -8,113 +8,112 @@
 
     <link rel="stylesheet" type="text/css" href="~/Content/Site.css">
 }
-<div class="jumbotron">
-    <h2 class="aLink">@Html.DisplayFor(model => model.Persons.FirstName) @Html.DisplayFor(model => model.Persons.LastName)</h2>
-
-    <div>
-
+    <div class="jumbotron">
+        <h2 class="aLink">@Html.DisplayFor(model => model.Persons.FirstName) @Html.DisplayFor(model => model.Persons.LastName)</h2>
         <hr />
-        <dl class="dl-horizontal" id="pdf">
-            <dt>
-                Förnamn:
-            </dt>
+        <div>
 
-            <dd>
-                @Html.DisplayFor(model => model.Persons.FirstName)
-            </dd>
+            <dl class="dl-horizontal" id="pdf">
+                <dt>
+                    Förnamn:
+                </dt>
 
-            <dt>
-                Efternamn:
-            </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.Persons.FirstName)
+                </dd>
 
-            <dd>
-                @Html.DisplayFor(model => model.Persons.LastName)
-            </dd>
+                <dt>
+                    Efternamn:
+                </dt>
 
-            <dt>
-                Adress:
-            </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.Persons.LastName)
+                </dd>
 
-            <dd>
-                @Html.DisplayFor(model => model.Persons.Adress)
-            </dd>
+                <dt>
+                    Adress:
+                </dt>
 
-            <dt>
-                Telefonnummer:
-            </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.Persons.Adress)
+                </dd>
 
-            <dd>
-                @Html.DisplayFor(model => model.Persons.Phonenumber)
-            </dd>
+                <dt>
+                    Telefonnummer:
+                </dt>
 
-            <dt>
-                E-post:
-            </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.Persons.Phonenumber)
+                </dd>
 
-            <dd>
-                @Html.DisplayFor(model => model.Persons.Email)
-            </dd>
+                <dt>
+                    E-post:
+                </dt>
 
-            <dt>
-                Födelsedata:
-            </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.Persons.Email)
+                </dd>
 
-            <dd>
-                @Html.DisplayFor(model => model.Persons.Birthdate)
-            </dd>
+                <dt>
+                    Födelsedata:
+                </dt>
 
-            <dt>
-                Nationalitet:
-            </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.Persons.Birthdate)
+                </dd>
 
-            <dd>
-                @Html.DisplayFor(model => model.Persons.Nationality)
-            </dd>
+                <dt>
+                    Nationalitet:
+                </dt>
 
-            <dt>
-                Körkort:
-            </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.Persons.Nationality)
+                </dd>
 
-            <dd>
-                @Html.DisplayFor(model => model.Persons.Driver_license)
-            </dd>
+                <dt>
+                    Körkort:
+                </dt>
 
-            <dt>
-                Profiltext:
-            </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.Persons.Driver_license)
+                </dd>
 
-            <dd>
-                <textarea>
+                <dt>
+                    Profiltext:
+                </dt>
+
+                <dd>
+                    <textarea>
             @Html.DisplayFor(model => model.Persons.Profile_text)
 
             </textarea>
-            </dd>
+                </dd>
 
-            <dt>
-                Arbete:
-            </dt>
-            <dd>
-                <table>
-                    @foreach (var item in Model.Employments)
-                    {
-                        <tr>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.Employment_id)
+                <dt>
+                    Arbete:
+                </dt>
+                <dd>
+                    <table>
+                        @foreach (var item in Model.Employments)
+                        {
+                            <tr>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Employment_id)
 
-                            </td>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.Assignments)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Assignments)
 
-                            </td>
-                        </tr>
-                    }
+                                </td>
+                            </tr>
+                        }
 
-                </table>
-            </dd>
+                    </table>
+                </dd>
 
-        </dl>
+            </dl>
+        </div>
     </div>
-</div>
 
 <div>
     <br />
