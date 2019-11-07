@@ -11,7 +11,8 @@ namespace GruppL_IK073G_ht19.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
     public partial class Persons
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -29,7 +30,10 @@ namespace GruppL_IK073G_ht19.Models
         public string LastName { get; set; }
         public string Adress { get; set; }
         public string Phonenumber { get; set; }
+        
         public string Email { get; set; }
+
+        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:MM/dd/yyyy}")]
         public Nullable<System.DateTime> Birthdate { get; set; }
         public string Nationality { get; set; }
         public Nullable<bool> Driver_license { get; set; }
