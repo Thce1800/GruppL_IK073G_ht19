@@ -1,8 +1,11 @@
 ﻿@model IEnumerable<GruppL_IK073G_ht19.ViewModels.PersonExpertisVM>
 @{
     ViewBag.Title = "Index";
+
 }
 
+
+@*IFSATSER SOM KONTROLLERAR tabellen från givet utfall*@
 <h2>Index</h2>
 <table class="table">
     <tr>
@@ -15,21 +18,34 @@
         <th>
             @Html.DisplayNameFor(model => model.Expertis)
         </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Competence)
+        </th>
     </tr>
 
     @foreach (var item in Model)
     {
-<tr>
-    <td>
-        @Html.DisplayFor(modelItem => item.FirstName)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.LastName)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.Expertis)
-    </td>
-</tr>
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.FirstName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LastName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Expertis)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Competence)
+            </td>
+        </tr>
     }
-    </table>
+</table>
+
+    <p>
+        @Html.ActionLink("Dropdown", "Test")
+    </p>
+
+
+
 
