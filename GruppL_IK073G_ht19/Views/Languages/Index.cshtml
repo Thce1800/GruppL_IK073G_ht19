@@ -4,42 +4,39 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
+<h2>Språkförmågor</h2>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
+<a href="/Languages/Create"><button class="logout"><b>+</b>Lägg till</button></a>
+
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.Language)
+            Språk
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Grade)
+            Gradering
         </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Persons1.FirstName)
-        </th>
-        <th></th>
+
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Language)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Grade)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Persons1.FirstName)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.Language_id }) |
-            @Html.ActionLink("Details", "Details", new { id=item.Language_id }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.Language_id })
-        </td>
-    </tr>
-}
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Language)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Grade)
+            </td>
+
+            <td>
+                @Html.ActionLink("Redigera", "Edit",  new { id = item.Language_id }) |
+                @Html.ActionLink("Radera", "Delete",  new { id = item.Language_id })
+            </td>
+        </tr>
+    }
 
 </table>
+
+<a href="/Persons/Details/1"><button class="logout">Tillbaka till profilen</button></a>
+<a href="/Competences/Index/1"><button class="logout">Uppdatera kompetens</button></a>
