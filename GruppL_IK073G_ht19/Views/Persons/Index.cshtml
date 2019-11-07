@@ -84,62 +84,7 @@
 
 </table>
 
-<div class="container2" id="test">
-    <input class="search-input" type="search" placeholder="Sök här..." id="site-search">
 
-    <div class="suggestions">
-
-    </div>
-</div>
-
-<script>
-    const searches = [
-        { name: "Programmerare" },
-        { name: "Grafiskdesigner" },
-        { name: "Projektledare" },
-        { name: "C#" },
-        { name: "Java" },
-        { name: "Python" },
-        { name: "Photoshop" },
-        { name: "Adobe Xd" },
-        { name: "Mockups" },
-        { name: "Officepaketet" },
-        { name: "Trello" },
-        { name: "Miro" },
-    ];
-
-    const searchInput = document.querySelector(".search-input");
-    const suggestionsPanel = document.querySelector(".suggestions");
-
-    searchInput.addEventListener("keyup", function () {
-        const input = searchInput.value;
-
-        suggestionsPanel.innerHTML = "";
-        const suggestions = searches.filter(function (search) {
-            return search.name.toLowerCase().startsWith(input);
-        });
-        suggestions.forEach(function (suggested) {
-            const div = document.createElement("div");
-            div.innerHTML = suggested.name;
-            suggestionsPanel.appendChild(div);
-
-        });
-        if (input == "") {
-            suggestionsPanel.innerHTML = "";
-        }
-        
-
-    })
-
-    suggestionsPanel.addEventListener("click", function () {
-        var id = document.querySelector('input[name=".suggestions"]');
-        var val = id.value;
-        document.getElementById("test").innerHTML = value;
-
-
-
-    })
-</script>
 
 <script>
 
@@ -169,4 +114,4 @@
     }
 </script>
 
-@*<button>Sök</button>*@
+
