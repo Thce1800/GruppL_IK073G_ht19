@@ -36,3 +36,9 @@ textarea {
 .jumbotron {
     background-color: #b0bdd1;
 }
+
+.logout {
+    background: #b0bdd1;
+    float: right;
+    margin: 13px 13px 13px 60px;
+}
