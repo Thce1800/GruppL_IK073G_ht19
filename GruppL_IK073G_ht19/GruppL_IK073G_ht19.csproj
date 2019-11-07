@@ -309,7 +309,6 @@
     <Content Include="Views\Educations\Index.cshtml" />
     <Content Include="Views\key_abilitiy\Create.cshtml" />
     <Content Include="Views\key_abilitiy\Delete.cshtml" />
-    <Content Include="Views\key_abilitiy\Details.cshtml" />
     <Content Include="Views\key_abilitiy\Edit.cshtml" />
     <Content Include="Views\key_abilitiy\Index.cshtml" />
   </ItemGroup>
