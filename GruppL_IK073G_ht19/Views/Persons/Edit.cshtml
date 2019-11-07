@@ -12,7 +12,7 @@
     @Html.AntiForgeryToken()
 
     <div class="form-horizontal">
-      
+
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         @Html.HiddenFor(model => model.Person_id)
@@ -98,20 +98,22 @@
             </div>
         </div>
     </div>
+    <hr />
+    <a href="/Employments/Index/1" type="button" class="button2" >Redigera Anställningar</a>
 }
-    <div>
-        <br />
-        <a href="https://www.linkedin.com">
-            <img alt="Linkedin" src="~/Content/linkedin.png" width="30" height="30">
-        </a>
-        <a href="https://www.github.com">
-            <img border="0" alt="Github" src="~/Content/github-logo.png" width="30" height="30">
-        </a>
-    </div>
+<div>
     <br />
-    <div>
-        @Html.ActionLink("Tillbaka", "Index") | @Html.ActionLink("Radera Profil", "Delete")
-    </div>
+    <a href="https://www.linkedin.com">
+        <img alt="Linkedin" src="~/Content/linkedin.png" width="30" height="30">
+    </a>
+    <a href="https://www.github.com">
+        <img border="0" alt="Github" src="~/Content/github-logo.png" width="30" height="30">
+    </a>
+</div>
+<br />
+<div>
+    @Html.ActionLink("Tillbaka", "Index") | @Html.ActionLink("Radera Profil", "Delete")
+</div>
 
 
 @section Scripts {

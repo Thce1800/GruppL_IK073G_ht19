@@ -140,7 +140,7 @@ namespace GruppL_IK073G_ht19.Controllers
             {
                 db.Entry(persons).State = EntityState.Modified;
                 db.SaveChanges();
-                return RedirectToAction("Index");
+               // return RedirectToAction("Index");
             }
             return View(persons);
         }
