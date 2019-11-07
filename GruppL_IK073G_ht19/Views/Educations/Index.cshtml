@@ -23,37 +23,39 @@
             Startdatum
         </th>
         <th>
-            
+
             Stoppdatum
         </th>
-        
+
     </tr>
 
     @foreach (var item in Model)
     {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Educational_institution)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Educational_program)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Diploma)
-        </td>
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Educational_institution)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Educational_program)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Diploma)
+            </td>
 
-        <td>
-            @Html.DisplayFor(modelItem => item.Start_date)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.End_date)
-        </td>
-        
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id = item.Education_id }) |
-            @Html.ActionLink("Delete", "Delete", new { id = item.Education_id })
-        </td>
-    </tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Start_date)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.End_date)
+            </td>
+            <td>
+                <a href="/Educations/Edit"><button class="logout">Redigera</button></a> |
+                <a href="/Educations/Delete"><button class="logout">Radera</button></a>
+
+            </td>
+
+        </tr>
     }
 
 </table>
+<a href="/Persons/Details/1"><button class="logout">Tillbaka till profilen</button></a>
