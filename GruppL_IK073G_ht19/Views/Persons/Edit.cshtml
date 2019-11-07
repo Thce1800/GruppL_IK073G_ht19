@@ -19,8 +19,6 @@
 
         <div class="form-group">
             <label class="control-label col-md-2">Förnamn</label>
-
-            @*@Html.LabelFor(model => model.FirstName, htmlAttributes: new { @class = "control-label col-md-2" })*@
             <div class="col-md-10">
                 @Html.EditorFor(model => model.FirstName, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.FirstName, "", new { @class = "text-danger" })
@@ -29,8 +27,6 @@
 
         <div class="form-group">
             <label class="control-label col-md-2">Efternamn</label>
-
-            @*@Html.LabelFor(model => model.LastName, htmlAttributes: new { @class = "control-label col-md-2" })*@
             <div class="col-md-10">
                 @Html.EditorFor(model => model.LastName, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.LastName, "", new { @class = "text-danger" })
@@ -39,8 +35,6 @@
 
         <div class="form-group">
             <label class="control-label col-md-2">Adress</label>
-
-            @*@Html.LabelFor(model => model.Adress, htmlAttributes: new { @class = "control-label col-md-2" })*@
             <div class="col-md-10">
                 @Html.EditorFor(model => model.Adress, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.Adress, "", new { @class = "text-danger" })
@@ -49,8 +43,6 @@
 
         <div class="form-group">
             <label class="control-label col-md-2">Telefonnummer</label>
-
-            @*@Html.LabelFor(model => model.Phonenumber, htmlAttributes: new { @class = "control-label col-md-2" })*@
             <div class="col-md-10">
                 @Html.EditorFor(model => model.Phonenumber, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.Phonenumber, "", new { @class = "text-danger" })
@@ -59,8 +51,6 @@
 
         <div class="form-group">
             <label class="control-label col-md-2">E-post</label>
-
-            @*@Html.LabelFor(model => model.Email, htmlAttributes: new { @class = "control-label col-md-2" })*@
             <div class="col-md-10">
                 @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
@@ -70,8 +60,6 @@
         <div class="form-group">
 
             <label class="control-label col-md-2">Födelsedatum</label>
-
-            @*@Html.LabelFor(model => model.Birthdate, htmlAttributes: new { @class = "control-label col-md-2" })*@
             <div class="col-md-10">
                 @Html.EditorFor(model => model.Birthdate, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.Birthdate, "", new { @class = "text-danger" })
@@ -122,7 +110,7 @@
     </div>
     <br />
     <div>
-        @Html.ActionLink("Tillbaka", "Index")|@Html.ActionLink("Radera Profil", "Delete")
+        @Html.ActionLink("Tillbaka", "Index") | @Html.ActionLink("Radera Profil", "Delete")
     </div>
 
 

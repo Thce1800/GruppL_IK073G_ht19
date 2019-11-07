@@ -23,7 +23,7 @@ namespace GruppL_IK073G_ht19.Controllers
         {
             employments = db.Employments.ToList();
             educations = db.Educations.ToList();
-            //expertise = db.Expertises.ToList();
+            expertises = db.Expertises.ToList();
             personExpertises = db.Person_Expertise.ToList();
             competences = db.Competences.ToList();
         }
@@ -50,47 +50,46 @@ namespace GruppL_IK073G_ht19.Controllers
             return keyAbilitysId;
         }
 
-        public List <Person_Expertise> PersonExpertises(int? id)
+        public List<Person_Expertise> PersonExpertises(int? id)
         {
+            int i = 0;
             var personExpertisesId = personExpertises.Where(s => s.Person_id == id).ToList();
 
             return personExpertisesId;
         }
 
-
-
-        public void Test()
+        public List<Competences> Competenses(int? id)
         {
-            //Kan man joina två tabeller till i denna metod??
-            //List<string> expertiseList;
+            int i = 0;
+            var personExpertisesId = personExpertises.Where(s => s.Person_id == id).ToList();
 
-            //var competenceList = (from person in db.Persons //HÄMTAR FRÅN TABELLEN PERSON
-            //                  join expertisPerson in db.Person_Expertise on person.Person_id equals
-            //                  expertisPerson.Person_id into table1
-            //                  from expertisPerson in table1.DefaultIfEmpty()
-            //                  join expertis in db.Expertises on expertisPerson.Expertise_id equals
-            //                  expertis.Expertise_id into table2
-            //                  from expertis in table2.DefaultIfEmpty()
+            var competencess = new List<Competences>();
 
-            //                  select new
-            //                  {
-            //                      person.FirstName,
-            //                      person.LastName,
-            //                      expertis.Expertise
-            //                  }).ToList();
-            //foreach (var item in expertiseList)
-            //{
-            //    string add = new string;
-            //    add.FirstName = item.FirstName;
-            //    objPEvm.LastName = item.LastName;
-            //    objPEvm.Expertis = item.Expertise;
-            //    PersonExpertisList.Add(objPEvm);
-            //}
+            foreach (var item in personExpertisesId)
+            {
+                if (personExpertisesId[i].Expertise_id<=3)
+                {
+                    Competences competence = new Competences() { Competence_id=1, Competence="Programmerare"};
+                    competencess.Add(competence);
+                }
+                if (personExpertisesId[i].Expertise_id >= 4 & personExpertisesId[i].Expertise_id <= 6)
+                {
+                    Competences competence = new Competences() { Competence_id = 1, Competence = "Grafiskdesigner" };
+                    competencess.Add(competence);
 
+
+                }
+                if (personExpertisesId[i].Expertise_id >= 7 & personExpertisesId[i].Expertise_id <= 9)
+                {
+                    Competences competence = new Competences() { Competence_id = 1, Competence = "Projektledare" };
+                    competencess.Add(competence);
+
+                }
+                i++;
+            }
+
+            return competencess;
         }
-
-
-
 
         public List<Languages> Languages(int? id)
         {
@@ -99,5 +98,6 @@ namespace GruppL_IK073G_ht19.Controllers
 
             return languagesId;
         }
+
     }
 }

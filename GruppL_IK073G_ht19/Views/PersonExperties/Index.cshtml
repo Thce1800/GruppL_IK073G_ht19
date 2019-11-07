@@ -7,7 +7,8 @@
 
 @*IFSATSER SOM KONTROLLERAR tabellen från givet utfall*@
 <h2>Index</h2>
-<table class="table">
+<input type="text" id="myInput" onkeyup="searchTable()" placeholder="Search for names..">
+<table id="myTable">
     <tr>
         <th>
             @Html.DisplayNameFor(model => model.FirstName)
@@ -25,26 +26,58 @@
 
     @foreach (var item in Model)
     {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.FirstName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.LastName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Expertis)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Competence)
-            </td>
-        </tr>
+<tr>
+    <td>
+        @Html.DisplayFor(modelItem => item.FirstName)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.LastName)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Expertis)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Competence)
+    </td>
+    <td>
+
+        @Html.ActionLink("Visa profil", "CDetails", new { id = item.person_id })
+
+    </td>
+</tr>
     }
 </table>
 
-    <p>
-        @Html.ActionLink("Dropdown", "Test")
-    </p>
+
+
+
+<script>
+    function searchTable(){
+ 
+  var input, filter, table, tr, td, i;
+  input = document.getElementById("myInput");
+  filter = input.value.toUpperCase();
+  table = document.getElementById("myTable");
+  tr = table.getElementsByTagName("tr");
+
+
+  for (i = 0; i < tr.length; i++) {
+    td = tr[i].getElementsByTagName("td") ; 
+    for(j=0 ; j<td.length ; j++)
+    {
+      let tdata = td[j] ;
+      if (tdata) {
+        if (tdata.innerHTML.toUpperCase().indexOf(filter) > -1) {
+          tr[i].style.display = "";
+          break ; 
+        } else {
+          tr[i].style.display = "none";
+        }
+      } 
+    }
+  }
+}
+</script>
 
 
 

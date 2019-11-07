@@ -11,6 +11,7 @@ namespace GruppL_IK073G_ht19.ViewModels
     {
         //REPRESENTERA VÄRDEN FRÅN BÅDE PERSON OCH EXPERTIS
         //FRÅN PERSON
+        public int person_id { get; set; }
         public string FirstName { get; set;}
         public string LastName { get; set; }
         //FRÅN EXPETIS
