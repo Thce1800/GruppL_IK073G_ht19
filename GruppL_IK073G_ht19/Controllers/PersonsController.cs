@@ -53,8 +53,8 @@ namespace GruppL_IK073G_ht19.Controllers
                 Employments = p.FindEmployment(id),
                 key_Abilitiys=p.KeyAbilitiys(id),
                 PersonExpertises=p.PersonExpertises(id),
-                Languages=p.Languages(id)
-                
+                Languages=p.Languages(id),
+                Competences=p.Competenses(id)
             };
 
 
