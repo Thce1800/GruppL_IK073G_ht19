@@ -275,14 +275,13 @@
     <input type="hidden" name="pdfHtml" />
     <input type="submit" class="buttonPdf" id="btnSubmit" value="Exportera till PDF" />
 }
-
+    <br />
 
 
     <p>
         @Html.ActionLink("Tillbaka", "Index")|
-    </p>
-    <p style="display:none">
-    @Html.ActionLink("Redigera", "Edit", new { id = Model.Persons.Person_id })
+        
+        @Html.ActionLink("Redigera", "Edit", new { id = Model.Persons.Person_id })
     </p>
         
     
