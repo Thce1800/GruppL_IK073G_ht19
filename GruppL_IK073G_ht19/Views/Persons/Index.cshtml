@@ -81,7 +81,7 @@
 
 </table>
 
-<div class="container2">
+<div class="container2" id="test">
     <input class="search-input" type="search" placeholder="Sök här..." id="site-search">
 
     <div class="suggestions">
@@ -129,6 +129,20 @@
         }
 
     })
+
+    suggestionsPanel.addEventListener("click", function () {
+        var id = document.querySelector('input[name=".suggestions"]');
+        var val = id.value;
+        document.getElementById("test").innerHTML = value; 
+        
+      
+
+    })
+</script>
+
+<script>
+    
+
 </script>
 
 @*<button>Sök</button>*@
