@@ -295,7 +295,6 @@
     <Content Include="Views\Employments\Index.cshtml" />
     <Content Include="Views\Languages\Create.cshtml" />
     <Content Include="Views\Languages\Delete.cshtml" />
-    <Content Include="Views\Languages\Details.cshtml" />
     <Content Include="Views\Languages\Edit.cshtml" />
     <Content Include="Views\Languages\Index.cshtml" />
     <Content Include="Views\Competences\Create.cshtml" />
