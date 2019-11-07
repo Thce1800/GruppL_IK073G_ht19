@@ -10,7 +10,6 @@
         <EntityTypeShape EntityType="gruppldbModel.Educations" Width="1.5" PointX="5.25" PointY="3.75" IsExpanded="true" />
         <EntityTypeShape EntityType="gruppldbModel.Employments" Width="1.5" PointX="5.25" PointY="7" IsExpanded="true" />
         <EntityTypeShape EntityType="gruppldbModel.Expertises" Width="1.5" PointX="6" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="gruppldbModel.key_abilitiy" Width="1.5" PointX="5.25" PointY="10" IsExpanded="true" />
         <EntityTypeShape EntityType="gruppldbModel.Languages" Width="1.5" PointX="0.75" PointY="7" IsExpanded="true" />
         <EntityTypeShape EntityType="gruppldbModel.Person_Expertise" Width="1.5" PointX="8.25" PointY="6.75" IsExpanded="true" />
         <EntityTypeShape EntityType="gruppldbModel.Persons" Width="1.5" PointX="3" PointY="5.75" IsExpanded="true" />
@@ -19,9 +18,10 @@
         <AssociationConnector Association="gruppldbModel.FK__Education__Perso__6B24EA82" ManuallyRouted="false" />
         <AssociationConnector Association="gruppldbModel.FK__Employmen__Perso__6E01572D" ManuallyRouted="false" />
         <AssociationConnector Association="gruppldbModel.FK__Person_Ex__Exper__68487DD7" ManuallyRouted="false" />
-        <AssociationConnector Association="gruppldbModel.FK__key_abili__perso__70DDC3D8" ManuallyRouted="false" />
         <AssociationConnector Association="gruppldbModel.FK__Person_Ex__Perso__6754599E" ManuallyRouted="false" />
-        <AssociationConnector Association="gruppldbModel.Person_Language" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="gruppldbModel.key_abilitiy" Width="1.5" PointX="5.25" PointY="10.75" />
+        <AssociationConnector Association="gruppldbModel.FK__key_abili__perso__70DDC3D8" />
+        <AssociationConnector Association="gruppldbModel.FK__Languages__Perso__00200768" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

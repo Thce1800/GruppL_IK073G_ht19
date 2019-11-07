@@ -13,12 +13,13 @@ using iTextSharp.text.pdf;
 using iTextSharp.tool.xml;
 using System.Text;
 using iTextSharp.text.html.simpleparser;
-
+using GruppL_IK073G_ht19.ViewModels;
 
 namespace GruppL_IK073G_ht19.Controllers
 {
     public class PersonsController : Controller
     {
+        
         private gruppldbEntities1 db = new gruppldbEntities1();
 
         // GET: Persons
@@ -39,7 +40,20 @@ namespace GruppL_IK073G_ht19.Controllers
             {
                 return HttpNotFound();
             }
-            return View(persons);
+            PersonsOperation p = new PersonsOperation();
+            var viewModel = new PersonViewModels
+            {
+                Persons = persons,
+                Educations=p.Educations(id),
+                Employments = p.FindEmployment(id),
+                key_Abilitiys=p.KeyAbilitiys(id),
+                PersonExpertises=p.PersonExpertises(id),
+                Languages=p.Languages(id)
+                
+            };
+
+
+            return View(viewModel);
         }
 
         // GET: Persons/Create
@@ -77,7 +91,11 @@ namespace GruppL_IK073G_ht19.Controllers
             {
                 return HttpNotFound();
             }
+            //Educations educations = db.Educations
+
             return View(persons);
+
+
         }
 
         // POST: Persons/Edit/5
@@ -136,6 +154,7 @@ namespace GruppL_IK073G_ht19.Controllers
         [ValidateInput(false)]
         public FileResult Export(string pdfHtml)
         {
+           // var cssText = "~/Content/Site.css"
             using (MemoryStream stream = new System.IO.MemoryStream())
             {
                 StringReader sr = new StringReader(pdfHtml);
@@ -147,5 +166,7 @@ namespace GruppL_IK073G_ht19.Controllers
                 return File(stream.ToArray(), "application/pdf", "Grid.pdf");
             }
         }
+
+
     }
 }

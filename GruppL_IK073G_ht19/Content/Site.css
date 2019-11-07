@@ -8,7 +8,9 @@
     padding-left: 15px;
     padding-right: 15px;
 }
-
+.bLinks{
+    font-size:30px;
+}
 /* Override the default bootstrap behavior where horizontal description lists 
    will truncate terms that are too long to fit in the left column 
 */
@@ -28,4 +30,8 @@ input,
 select,
 textarea {
     max-width: 280px;
+}
+.aLink
+{
+    color:cadetblue;
 }

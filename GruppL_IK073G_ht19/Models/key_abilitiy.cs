@@ -16,7 +16,7 @@ namespace GruppL_IK073G_ht19.Models
     {
         public int key_abilitiy_id { get; set; }
         public int person_id { get; set; }
-        public int abilitiy { get; set; }
+        public string abilitiy { get; set; }
     
         public virtual Persons Persons { get; set; }
     }

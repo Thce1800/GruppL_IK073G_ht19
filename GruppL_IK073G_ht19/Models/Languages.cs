@@ -14,16 +14,11 @@ namespace GruppL_IK073G_ht19.Models
     
     public partial class Languages
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Languages()
-        {
-            this.Persons = new HashSet<Persons>();
-        }
-    
         public int Language_id { get; set; }
         public string Language { get; set; }
+        public Nullable<int> Grade { get; set; }
+        public Nullable<int> Person_id { get; set; }
     
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Persons> Persons { get; set; }
+        public virtual Persons Persons1 { get; set; }
     }
 }
