@@ -2,14 +2,16 @@
 
 @{
     ViewBag.Title = "Index";
+    <link rel="stylesheet" type="text/css" href="~/Content/Site.css">
+
     <link rel="stylesheet" type="text/css" href="~/Content/PersonSearch.css">
 
 }
 
-<h2>Här kan du se de frilansare som söker en uppdragsgivare just nu:</h2>
+<h2>Här kan du se  frilansare som söker uppdragsgivare just nu:</h2>
 
 <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for names..">
-<table id="myTable">
+<table id="myTable" class="table">
     <tr>
         <th>
             Förnamn
@@ -85,7 +87,7 @@
     <input class="search-input" type="search" placeholder="Sök här..." id="site-search">
 
     <div class="suggestions">
-       
+
     </div>
 </div>
 
@@ -108,23 +110,20 @@
     const searchInput = document.querySelector(".search-input");
     const suggestionsPanel = document.querySelector(".suggestions");
 
-    searchInput.addEventListener("keyup", function ()
-    {
+    searchInput.addEventListener("keyup", function () {
         const input = searchInput.value;
-        
+
         suggestionsPanel.innerHTML = "";
         const suggestions = searches.filter(function (search) {
             return search.name.toLowerCase().startsWith(input);
         });
-        suggestions.forEach(function (suggested)
-        {
+        suggestions.forEach(function (suggested) {
             const div = document.createElement("div");
             div.innerHTML = suggested.name;
             suggestionsPanel.appendChild(div);
 
         });
-        if (input == "")
-        {
+        if (input == "") {
             suggestionsPanel.innerHTML = "";
         }
 
@@ -133,15 +132,15 @@
     suggestionsPanel.addEventListener("click", function () {
         var id = document.querySelector('input[name=".suggestions"]');
         var val = id.value;
-        document.getElementById("test").innerHTML = value; 
-        
-      
+        document.getElementById("test").innerHTML = value;
+
+
 
     })
 </script>
 
 <script>
-    
+
 
 </script>
 <script>
