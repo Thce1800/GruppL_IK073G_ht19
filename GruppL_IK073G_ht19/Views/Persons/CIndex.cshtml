@@ -6,10 +6,10 @@
 
 }
 
-<h2>Här kan du se de frilansare som söker en uppdragsgivare just nu:</h2>
+<h2>Här kan du se  frilansare som söker uppdragsgivare just nu:</h2>
 
-
-<table class="table">
+<input type="text" id="myInput" onkeyup="searchTable()" placeholder="Search for names..">
+    <table id="myTable" class="table">
     <tr>
         <th>
             Förnamn
@@ -81,54 +81,29 @@
 
 </table>
 
-<div class="container2">
-    <input class="search-input" type="search" placeholder="Sök här..." id="site-search">
+    <script>
+        function searchTable() {
 
-    <div class="suggestions">
+            var input, filter, table, tr, td, i;
+            input = document.getElementById("myInput");
+            filter = input.value.toUpperCase();
+            table = document.getElementById("myTable");
+            tr = table.getElementsByTagName("tr");
 
-    </div>
-</div>
 
-<script>
-    const searches = [
-        { name: "Programmerare" },
-        { name: "Grafiskdesigner" },
-        { name: "Projektledare" },
-        { name: "C#" },
-        { name: "Java" },
-        { name: "Python" },
-        { name: "Photoshop" },
-        { name: "Adobe Xd" },
-        { name: "Mockups" },
-        { name: "Officepaketet" },
-        { name: "Trello" },
-        { name: "Miro" },
-    ];
-
-    const searchInput = document.querySelector(".search-input");
-    const suggestionsPanel = document.querySelector(".suggestions");
-
-    searchInput.addEventListener("keyup", function ()
-    {
-        const input = searchInput.value;
-
-        suggestionsPanel.innerHTML = "";
-        const suggestions = searches.filter(function (search) {
-            return search.name.toLowerCase().startsWith(input);
-        });
-        suggestions.forEach(function (suggested)
-        {
-            const div = document.createElement("div");
-            div.innerHTML = suggested.name;
-            suggestionsPanel.appendChild(div);
-
-        });
-        if (input == "")
-        {
-            suggestionsPanel.innerHTML = "";
+            for (i = 0; i < tr.length; i++) {
+                td = tr[i].getElementsByTagName("td");
+                for (j = 0; j < td.length; j++) {
+                    let tdata = td[j];
+                    if (tdata) {
+                        if (tdata.innerHTML.toUpperCase().indexOf(filter) > -1) {
+                            tr[i].style.display = "";
+                            break;
+                        } else {
+                            tr[i].style.display = "none";
+                        }
+                    }
+                }
+            }
         }
-
-    })
-</script>
-
-@*<button>Sök</button>*@
+    </script>

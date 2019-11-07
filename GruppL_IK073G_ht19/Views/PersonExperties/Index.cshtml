@@ -8,7 +8,7 @@
 @*IFSATSER SOM KONTROLLERAR tabellen från givet utfall*@
 <h2>Index</h2>
 <input type="text" id="myInput" onkeyup="searchTable()" placeholder="Search for names..">
-<table id="myTable">
+<table id="myTable" class="table">
     <tr>
         <th>
             @Html.DisplayNameFor(model => model.FirstName)
@@ -26,25 +26,25 @@
 
     @foreach (var item in Model)
     {
-<tr>
-    <td>
-        @Html.DisplayFor(modelItem => item.FirstName)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.LastName)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.Expertis)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.Competence)
-    </td>
-    <td id="noway">
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.FirstName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LastName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Expertis)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Competence)
+            </td>
+            <td id="noway">
 
-        @Html.ActionLink("Visa profil", " ", new { id = item.person_id }) @*HJÄLP*@
+                @Html.ActionLink("Visa profil", " ", new { id = item.person_id }) @*HJÄLP*@
 
-    </td>
-</tr>
+            </td>
+        </tr>
     }
 </table>
 

@@ -11,8 +11,7 @@ namespace GruppL_IK073G_ht19.Models
 {
     using System;
     using System.Collections.Generic;
-    using System.ComponentModel.DataAnnotations;
-
+    
     public partial class Expertises
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -20,11 +19,10 @@ namespace GruppL_IK073G_ht19.Models
         {
             this.Person_Expertise = new HashSet<Person_Expertise>();
         }
-        [ScaffoldColumn(false)]
+    
         public int Expertise_id { get; set; }
-        [ScaffoldColumn(false)]
-        public int Competence_id { get; set; }
         public string Expertise { get; set; }
+        public Nullable<int> Competence_id { get; set; }
     
         public virtual Competences Competences { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

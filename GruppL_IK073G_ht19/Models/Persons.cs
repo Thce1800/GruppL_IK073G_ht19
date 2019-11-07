@@ -11,8 +11,7 @@ namespace GruppL_IK073G_ht19.Models
 {
     using System;
     using System.Collections.Generic;
-    using System.ComponentModel.DataAnnotations;
-
+    
     public partial class Persons
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -20,9 +19,9 @@ namespace GruppL_IK073G_ht19.Models
         {
             this.Educations = new HashSet<Educations>();
             this.Employments = new HashSet<Employments>();
-            this.Person_Expertise = new HashSet<Person_Expertise>();
             this.key_abilitiy = new HashSet<key_abilitiy>();
             this.Languages1 = new HashSet<Languages>();
+            this.Person_Expertise = new HashSet<Person_Expertise>();
         }
     
         public int Person_id { get; set; }
@@ -30,10 +29,7 @@ namespace GruppL_IK073G_ht19.Models
         public string LastName { get; set; }
         public string Adress { get; set; }
         public string Phonenumber { get; set; }
-        
         public string Email { get; set; }
-
-        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:MM/dd/yyyy}")]
         public Nullable<System.DateTime> Birthdate { get; set; }
         public string Nationality { get; set; }
         public Nullable<bool> Driver_license { get; set; }
@@ -44,10 +40,10 @@ namespace GruppL_IK073G_ht19.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Employments> Employments { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Person_Expertise> Person_Expertise { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<key_abilitiy> key_abilitiy { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Languages> Languages1 { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Person_Expertise> Person_Expertise { get; set; }
     }
 }
