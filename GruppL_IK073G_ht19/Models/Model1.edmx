@@ -51,8 +51,8 @@
             <PropertyRef Name="Expertise_id" />
           </Key>
           <Property Name="Expertise_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="Competence_id" Type="int" Nullable="false" />
           <Property Name="Expertise" Type="varchar" MaxLength="50" />
+          <Property Name="Competence_id" Type="int" />
         </EntityType>
         <EntityType Name="key_abilitiy">
           <Key>
@@ -137,8 +137,8 @@ warning 6002: The table/view 'gruppldb.sys.database_firewall_rules' does not hav
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Expertise__Compe__6477ECF3">
-          <End Role="Competences" Type="Self.Competences" Multiplicity="1" />
+        <Association Name="FK__Expertise__Compe__151B244E">
+          <End Role="Competences" Type="Self.Competences" Multiplicity="0..1" />
           <End Role="Expertises" Type="Self.Expertises" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Competences">
@@ -173,7 +173,7 @@ warning 6002: The table/view 'gruppldb.sys.database_firewall_rules' does not hav
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Person_Ex__Exper__778AC167">
+        <Association Name="FK__Person_Ex__Exper__14270015">
           <End Role="Expertises" Type="Self.Expertises" Multiplicity="1" />
           <End Role="Person_Expertise" Type="Self.Person_Expertise" Multiplicity="*" />
           <ReferentialConstraint>
@@ -185,7 +185,7 @@ warning 6002: The table/view 'gruppldb.sys.database_firewall_rules' does not hav
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Person_Ex__Perso__76969D2E">
+        <Association Name="FK__Person_Ex__Perso__1332DBDC">
           <End Role="Persons" Type="Self.Persons" Multiplicity="1" />
           <End Role="Person_Expertise" Type="Self.Person_Expertise" Multiplicity="*" />
           <ReferentialConstraint>
@@ -225,7 +225,7 @@ warning 6002: The table/view 'gruppldb.sys.database_firewall_rules' does not hav
             <End Role="Persons" EntitySet="Persons" />
             <End Role="Employments" EntitySet="Employments" />
           </AssociationSet>
-          <AssociationSet Name="FK__Expertise__Compe__6477ECF3" Association="Self.FK__Expertise__Compe__6477ECF3">
+          <AssociationSet Name="FK__Expertise__Compe__151B244E" Association="Self.FK__Expertise__Compe__151B244E">
             <End Role="Competences" EntitySet="Competences" />
             <End Role="Expertises" EntitySet="Expertises" />
           </AssociationSet>
@@ -237,11 +237,11 @@ warning 6002: The table/view 'gruppldb.sys.database_firewall_rules' does not hav
             <End Role="Persons" EntitySet="Persons" />
             <End Role="Languages" EntitySet="Languages" />
           </AssociationSet>
-          <AssociationSet Name="FK__Person_Ex__Exper__778AC167" Association="Self.FK__Person_Ex__Exper__778AC167">
+          <AssociationSet Name="FK__Person_Ex__Exper__14270015" Association="Self.FK__Person_Ex__Exper__14270015">
             <End Role="Expertises" EntitySet="Expertises" />
             <End Role="Person_Expertise" EntitySet="Person_Expertise" />
           </AssociationSet>
-          <AssociationSet Name="FK__Person_Ex__Perso__76969D2E" Association="Self.FK__Person_Ex__Perso__76969D2E">
+          <AssociationSet Name="FK__Person_Ex__Perso__1332DBDC" Association="Self.FK__Person_Ex__Perso__1332DBDC">
             <End Role="Persons" EntitySet="Persons" />
             <End Role="Person_Expertise" EntitySet="Person_Expertise" />
           </AssociationSet>
@@ -256,7 +256,7 @@ warning 6002: The table/view 'gruppldb.sys.database_firewall_rules' does not hav
           </Key>
           <Property Name="Competence_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Competence" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="Expertises" Relationship="Self.FK__Expertise__Compe__6477ECF3" FromRole="Competences" ToRole="Expertises" />
+          <NavigationProperty Name="Expertises" Relationship="gruppldbModel.FK__Expertise__Compe__151B244E" FromRole="Competences" ToRole="Expertises" />
         </EntityType>
         <EntityType Name="Customers">
           <Key>
@@ -294,16 +294,6 @@ warning 6002: The table/view 'gruppldb.sys.database_firewall_rules' does not hav
           <Property Name="Assignments" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="Persons" Relationship="Self.FK__Employmen__Perso__6E01572D" FromRole="Employments" ToRole="Persons" />
         </EntityType>
-        <EntityType Name="Expertises">
-          <Key>
-            <PropertyRef Name="Expertise_id" />
-          </Key>
-          <Property Name="Expertise_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Competence_id" Type="Int32" Nullable="false" />
-          <Property Name="Expertise" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="Competences" Relationship="Self.FK__Expertise__Compe__6477ECF3" FromRole="Expertises" ToRole="Competences" />
-          <NavigationProperty Name="Person_Expertise" Relationship="Self.FK__Person_Ex__Exper__68487DD7" FromRole="Expertises" ToRole="Person_Expertise" />
-        </EntityType>
         <EntityType Name="Languages">
           <Key>
             <PropertyRef Name="Language_id" />
@@ -313,17 +303,6 @@ warning 6002: The table/view 'gruppldb.sys.database_firewall_rules' does not hav
           <Property Name="Grade" Type="Int32" />
           <Property Name="Person_id" Type="Int32" />
           <NavigationProperty Name="Persons1" Relationship="gruppldbModel.FK__Languages__Perso__00200768" FromRole="Languages" ToRole="Persons" />
-        </EntityType>
-        <EntityType Name="Person_Expertise">
-          <Key>
-            <PropertyRef Name="Person_id" />
-            <PropertyRef Name="Expertise_id" />
-          </Key>
-          <Property Name="Person_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Expertise_id" Type="Int32" Nullable="false" />
-          <Property Name="Grade" Type="Int32" />
-          <NavigationProperty Name="Expertises" Relationship="Self.FK__Person_Ex__Exper__68487DD7" FromRole="Person_Expertise" ToRole="Expertises" />
-          <NavigationProperty Name="Persons" Relationship="Self.FK__Person_Ex__Perso__6754599E" FromRole="Person_Expertise" ToRole="Persons" />
         </EntityType>
         <EntityType Name="Persons">
           <Key>
@@ -341,9 +320,9 @@ warning 6002: The table/view 'gruppldb.sys.database_firewall_rules' does not hav
           <Property Name="Profile_text" Type="String" MaxLength="2500" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="Educations" Relationship="Self.FK__Education__Perso__6B24EA82" FromRole="Persons" ToRole="Educations" />
           <NavigationProperty Name="Employments" Relationship="Self.FK__Employmen__Perso__6E01572D" FromRole="Persons" ToRole="Employments" />
-          <NavigationProperty Name="Person_Expertise" Relationship="Self.FK__Person_Ex__Perso__6754599E" FromRole="Persons" ToRole="Person_Expertise" />
           <NavigationProperty Name="key_abilitiy" Relationship="gruppldbModel.FK__key_abili__perso__70DDC3D8" FromRole="Persons" ToRole="key_abilitiy" />
           <NavigationProperty Name="Languages1" Relationship="gruppldbModel.FK__Languages__Perso__00200768" FromRole="Persons" ToRole="Languages" />
+          <NavigationProperty Name="Person_Expertise" Relationship="gruppldbModel.FK__Person_Ex__Perso__1332DBDC" FromRole="Persons" ToRole="Person_Expertise" />
         </EntityType>
         <EntityType Name="database_firewall_rules">
           <Key>
@@ -361,18 +340,6 @@ warning 6002: The table/view 'gruppldb.sys.database_firewall_rules' does not hav
           <Property Name="create_date" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="modify_date" Type="DateTime" Nullable="false" Precision="3" />
         </EntityType>
-        <Association Name="FK__Expertise__Compe__6477ECF3">
-          <End Role="Competences" Type="Self.Competences" Multiplicity="1" />
-          <End Role="Expertises" Type="Self.Expertises" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Competences">
-              <PropertyRef Name="Competence_id" />
-            </Principal>
-            <Dependent Role="Expertises">
-              <PropertyRef Name="Competence_id" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK__Education__Perso__6B24EA82">
           <End Role="Persons" Type="Self.Persons" Multiplicity="1" />
           <End Role="Educations" Type="Self.Educations" Multiplicity="*" />
@@ -397,44 +364,14 @@ warning 6002: The table/view 'gruppldb.sys.database_firewall_rules' does not hav
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Person_Ex__Exper__68487DD7">
-          <End Role="Expertises" Type="Self.Expertises" Multiplicity="1" />
-          <End Role="Person_Expertise" Type="Self.Person_Expertise" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Expertises">
-              <PropertyRef Name="Expertise_id" />
-            </Principal>
-            <Dependent Role="Person_Expertise">
-              <PropertyRef Name="Expertise_id" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__Person_Ex__Perso__6754599E">
-          <End Role="Persons" Type="Self.Persons" Multiplicity="1" />
-          <End Role="Person_Expertise" Type="Self.Person_Expertise" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Persons">
-              <PropertyRef Name="Person_id" />
-            </Principal>
-            <Dependent Role="Person_Expertise">
-              <PropertyRef Name="Person_id" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <EntityContainer Name="gruppldbEntities1" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Competences" EntityType="Self.Competences" />
           <EntitySet Name="Customers" EntityType="Self.Customers" />
           <EntitySet Name="Educations" EntityType="Self.Educations" />
           <EntitySet Name="Employments" EntityType="Self.Employments" />
-          <EntitySet Name="Expertises" EntityType="Self.Expertises" />
           <EntitySet Name="Languages" EntityType="Self.Languages" />
-          <EntitySet Name="Person_Expertise" EntityType="Self.Person_Expertise" />
           <EntitySet Name="Persons" EntityType="Self.Persons" />
           <EntitySet Name="database_firewall_rules" EntityType="Self.database_firewall_rules" />
-          <AssociationSet Name="FK__Expertise__Compe__6477ECF3" Association="Self.FK__Expertise__Compe__6477ECF3">
-            <End Role="Competences" EntitySet="Competences" />
-            <End Role="Expertises" EntitySet="Expertises" />
-          </AssociationSet>
           <AssociationSet Name="FK__Education__Perso__6B24EA82" Association="Self.FK__Education__Perso__6B24EA82">
             <End Role="Persons" EntitySet="Persons" />
             <End Role="Educations" EntitySet="Educations" />
@@ -442,14 +379,6 @@ warning 6002: The table/view 'gruppldb.sys.database_firewall_rules' does not hav
           <AssociationSet Name="FK__Employmen__Perso__6E01572D" Association="Self.FK__Employmen__Perso__6E01572D">
             <End Role="Persons" EntitySet="Persons" />
             <End Role="Employments" EntitySet="Employments" />
-          </AssociationSet>
-          <AssociationSet Name="FK__Person_Ex__Exper__68487DD7" Association="Self.FK__Person_Ex__Exper__68487DD7">
-            <End Role="Expertises" EntitySet="Expertises" />
-            <End Role="Person_Expertise" EntitySet="Person_Expertise" />
-          </AssociationSet>
-          <AssociationSet Name="FK__Person_Ex__Perso__6754599E" Association="Self.FK__Person_Ex__Perso__6754599E">
-            <End Role="Persons" EntitySet="Persons" />
-            <End Role="Person_Expertise" EntitySet="Person_Expertise" />
           </AssociationSet>
           <EntitySet Name="key_abilitiy" EntityType="gruppldbModel.key_abilitiy" />
           <AssociationSet Name="FK__key_abili__perso__70DDC3D8" Association="gruppldbModel.FK__key_abili__perso__70DDC3D8">
@@ -460,7 +389,21 @@ warning 6002: The table/view 'gruppldb.sys.database_firewall_rules' does not hav
             <End Role="Persons" EntitySet="Persons" />
             <End Role="Languages" EntitySet="Languages" />
           </AssociationSet>
-        </EntityContainer>
+          <EntitySet Name="Expertises" EntityType="gruppldbModel.Expertises" />
+          <EntitySet Name="Person_Expertise" EntityType="gruppldbModel.Person_Expertise" />
+          <AssociationSet Name="FK__Expertise__Compe__151B244E" Association="gruppldbModel.FK__Expertise__Compe__151B244E">
+            <End Role="Competences" EntitySet="Competences" />
+            <End Role="Expertises" EntitySet="Expertises" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Person_Ex__Exper__14270015" Association="gruppldbModel.FK__Person_Ex__Exper__14270015">
+            <End Role="Expertises" EntitySet="Expertises" />
+            <End Role="Person_Expertise" EntitySet="Person_Expertise" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Person_Ex__Perso__1332DBDC" Association="gruppldbModel.FK__Person_Ex__Perso__1332DBDC">
+            <End Role="Persons" EntitySet="Persons" />
+            <End Role="Person_Expertise" EntitySet="Person_Expertise" />
+          </AssociationSet>
+          </EntityContainer>
         <EntityType Name="key_abilitiy">
           <Key>
             <PropertyRef Name="key_abilitiy_id" />
@@ -494,7 +437,64 @@ warning 6002: The table/view 'gruppldb.sys.database_firewall_rules' does not hav
             </Dependent>
           </ReferentialConstraint>
         </Association>
-      </Schema>
+        <EntityType Name="Expertises">
+          <Key>
+            <PropertyRef Name="Expertise_id" />
+          </Key>
+          <Property Name="Expertise_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Expertise" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Competence_id" Type="Int32" />
+          <NavigationProperty Name="Competences" Relationship="gruppldbModel.FK__Expertise__Compe__151B244E" FromRole="Expertises" ToRole="Competences" />
+          <NavigationProperty Name="Person_Expertise" Relationship="gruppldbModel.FK__Person_Ex__Exper__14270015" FromRole="Expertises" ToRole="Person_Expertise" />
+        </EntityType>
+        <EntityType Name="Person_Expertise">
+          <Key>
+            <PropertyRef Name="Person_id" />
+            <PropertyRef Name="Expertise_id" />
+          </Key>
+          <Property Name="Person_id" Type="Int32" Nullable="false" />
+          <Property Name="Expertise_id" Type="Int32" Nullable="false" />
+          <Property Name="Grade" Type="Int32" />
+          <NavigationProperty Name="Expertises" Relationship="gruppldbModel.FK__Person_Ex__Exper__14270015" FromRole="Person_Expertise" ToRole="Expertises" />
+          <NavigationProperty Name="Persons" Relationship="gruppldbModel.FK__Person_Ex__Perso__1332DBDC" FromRole="Person_Expertise" ToRole="Persons" />
+        </EntityType>
+        <Association Name="FK__Expertise__Compe__151B244E">
+          <End Type="gruppldbModel.Competences" Role="Competences" Multiplicity="0..1" />
+          <End Type="gruppldbModel.Expertises" Role="Expertises" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Competences">
+              <PropertyRef Name="Competence_id" />
+            </Principal>
+            <Dependent Role="Expertises">
+              <PropertyRef Name="Competence_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Person_Ex__Exper__14270015">
+          <End Type="gruppldbModel.Expertises" Role="Expertises" Multiplicity="1" />
+          <End Type="gruppldbModel.Person_Expertise" Role="Person_Expertise" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Expertises">
+              <PropertyRef Name="Expertise_id" />
+            </Principal>
+            <Dependent Role="Person_Expertise">
+              <PropertyRef Name="Expertise_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Person_Ex__Perso__1332DBDC">
+          <End Type="gruppldbModel.Persons" Role="Persons" Multiplicity="1" />
+          <End Type="gruppldbModel.Person_Expertise" Role="Person_Expertise" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Persons">
+              <PropertyRef Name="Person_id" />
+            </Principal>
+            <Dependent Role="Person_Expertise">
+              <PropertyRef Name="Person_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
@@ -545,15 +545,6 @@ warning 6002: The table/view 'gruppldb.sys.database_firewall_rules' does not hav
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Expertises">
-            <EntityTypeMapping TypeName="gruppldbModel.Expertises">
-              <MappingFragment StoreEntitySet="Expertises">
-                <ScalarProperty Name="Expertise_id" ColumnName="Expertise_id" />
-                <ScalarProperty Name="Competence_id" ColumnName="Competence_id" />
-                <ScalarProperty Name="Expertise" ColumnName="Expertise" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="Languages">
             <EntityTypeMapping TypeName="gruppldbModel.Languages">
               <MappingFragment StoreEntitySet="Languages">
@@ -561,15 +552,6 @@ warning 6002: The table/view 'gruppldb.sys.database_firewall_rules' does not hav
                 <ScalarProperty Name="Grade" ColumnName="Grade" />
                 <ScalarProperty Name="Language_id" ColumnName="Language_id" />
                 <ScalarProperty Name="Language" ColumnName="Language" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Person_Expertise">
-            <EntityTypeMapping TypeName="gruppldbModel.Person_Expertise">
-              <MappingFragment StoreEntitySet="Person_Expertise">
-                <ScalarProperty Name="Person_id" ColumnName="Person_id" />
-                <ScalarProperty Name="Expertise_id" ColumnName="Expertise_id" />
-                <ScalarProperty Name="Grade" ColumnName="Grade" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -607,6 +589,24 @@ warning 6002: The table/view 'gruppldb.sys.database_firewall_rules' does not hav
                 <ScalarProperty Name="abilitiy" ColumnName="abilitiy" />
                 <ScalarProperty Name="person_id" ColumnName="person_id" />
                 <ScalarProperty Name="key_abilitiy_id" ColumnName="key_abilitiy_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Expertises">
+            <EntityTypeMapping TypeName="gruppldbModel.Expertises">
+              <MappingFragment StoreEntitySet="Expertises">
+                <ScalarProperty Name="Competence_id" ColumnName="Competence_id" />
+                <ScalarProperty Name="Expertise" ColumnName="Expertise" />
+                <ScalarProperty Name="Expertise_id" ColumnName="Expertise_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Person_Expertise">
+            <EntityTypeMapping TypeName="gruppldbModel.Person_Expertise">
+              <MappingFragment StoreEntitySet="Person_Expertise">
+                <ScalarProperty Name="Grade" ColumnName="Grade" />
+                <ScalarProperty Name="Expertise_id" ColumnName="Expertise_id" />
+                <ScalarProperty Name="Person_id" ColumnName="Person_id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
