@@ -36,8 +36,10 @@
             </td>
 
             <td>
-                @Html.ActionLink("Redigera", "Edit", new { id = item.Employment_id }) |
-                @Html.ActionLink("Radera", "Delete", new { id = item.Employment_id })
+                <a href="/Employments/Edit"><button class="logout">Redigera</button></a> | 
+                <a href="/Employments/Delete"><button class="logout">Radera</button></a>
+
+
             </td>
         </tr>
     }
@@ -45,6 +47,6 @@
 
 </table>
 <div>
-    <a href="/Educations/Index/1"><button class="logout">Redigera Utbildningar</button></a>
     <a href="/Persons/Details/1"><button class="logout">Tillbaka till profilen</button></a>
+    
 </div>

@@ -4,60 +4,58 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
+<h2>Utbildningar</h2>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
+<a href="/Educations/Create"><button class="logout"><b>+</b>Lägg till</button></a>
+
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.Educational_institution)
+            Lärosäte
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Educational_program)
+            Program
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Diploma)
+            Diplom
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.End_date)
+            Startdatum
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Start_date)
+
+            Stoppdatum
         </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Persons.FirstName)
-        </th>
-        <th></th>
+
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Educational_institution)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Educational_program)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Diploma)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.End_date)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Start_date)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Persons.FirstName)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.Education_id }) |
-            @Html.ActionLink("Details", "Details", new { id=item.Education_id }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.Education_id })
-        </td>
-    </tr>
-}
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Educational_institution)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Educational_program)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Diploma)
+            </td>
+
+            <td>
+                @Html.DisplayFor(modelItem => item.Start_date)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.End_date)
+            </td>
+            <td>
+                <a href="/Educations/Edit"><button class="logout">Redigera</button></a> |
+                <a href="/Educations/Delete"><button class="logout">Radera</button></a>
+
+            </td>
+
+        </tr>
+    }
 
 </table>
+<a href="/Persons/Details/1"><button class="logout">Tillbaka till profilen</button></a>
