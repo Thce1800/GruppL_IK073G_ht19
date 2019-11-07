@@ -2555,6 +2555,10 @@ output {
   line-height: 1.42857143;
   color: #555;
 }
+.bajs{
+    width: 200px;
+    height: 200px;
+}
 .form-control {
   display: block;
   width: 100%;
@@ -6763,4 +6767,16 @@ button.close {
     display: none !important;
   }
 }
+
+.logout {
+    background: #b0bdd1;
+    float: right;
+    margin: 13px 13px 13px 60px;
+    width: 90px;
+    font-size: 18px;
+    color: black;
+
+}
 /*# sourceMappingURL=bootstrap.css.map */
+
+
