@@ -31,6 +31,7 @@ namespace GruppL_IK073G_ht19.Controllers
                               from competense in table3.DefaultIfEmpty()
                               select new
                               {
+                                  person.Person_id,
                                   person.FirstName,
                                   person.LastName,
                                   expertis.Expertise,

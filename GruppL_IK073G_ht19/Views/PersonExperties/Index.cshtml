@@ -26,20 +26,25 @@
 
     @foreach (var item in Model)
     {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.FirstName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.LastName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Expertis)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Competence)
-            </td>
-        </tr>
+<tr>
+    <td>
+        @Html.DisplayFor(modelItem => item.FirstName)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.LastName)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Expertis)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Competence)
+    </td>
+    <td>
+
+        @Html.ActionLink("Visa profil", "CDetails", new { id = item.person_id })
+
+    </td>
+</tr>
     }
 </table>
 
