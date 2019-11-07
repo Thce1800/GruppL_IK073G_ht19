@@ -1,15 +1,15 @@
 ﻿@model IEnumerable<GruppL_IK073G_ht19.Models.Persons>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "CIndex";
     <link rel="stylesheet" type="text/css" href="~/Content/PersonSearch.css">
 
 }
 
 <h2>Här kan du se de frilansare som söker en uppdragsgivare just nu:</h2>
 
-<input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for names..">
-<table id="myTable">
+
+<table class="table">
     <tr>
         <th>
             Förnamn
@@ -73,7 +73,7 @@
             </td>
             <td>
 
-                @Html.ActionLink("Visa profil", "Details", new { id = item.Person_id })
+                @Html.ActionLink("Visa profil", "CDetails", new { id = item.Person_id })
 
             </td>
         </tr>
@@ -81,11 +81,11 @@
 
 </table>
 
-<div class="container2" id="test">
+<div class="container2">
     <input class="search-input" type="search" placeholder="Sök här..." id="site-search">
 
     <div class="suggestions">
-       
+
     </div>
 </div>
 
@@ -111,7 +111,7 @@
     searchInput.addEventListener("keyup", function ()
     {
         const input = searchInput.value;
-        
+
         suggestionsPanel.innerHTML = "";
         const suggestions = searches.filter(function (search) {
             return search.name.toLowerCase().startsWith(input);
@@ -127,46 +127,8 @@
         {
             suggestionsPanel.innerHTML = "";
         }
-        
 
     })
-
-    suggestionsPanel.addEventListener("click", function () {
-        var id = document.querySelector('input[name=".suggestions"]');
-        var val = id.value;
-        document.getElementById("test").innerHTML = value; 
-        
-      
-
-    })
-</script>
-
-<script>
-    
-
-</script>
-<script>
-    function myFunction() {
-        // Declare variables
-        var input, filter, table, tr, td, i, txtValue;
-        input = document.getElementById("myInput");
-        filter = input.value.toUpperCase();
-        table = document.getElementById("myTable");
-        tr = table.getElementsByTagName("tr");
-
-        // Loop through all table rows, and hide those who don't match the search query
-        for (i = 0; i < tr.length; i++) {
-            td = tr[i].getElementsByTagName("td")[0];
-            if (td) {
-                txtValue = td.textContent || td.innerText;
-                if (txtValue.toUpperCase().indexOf(filter) > -1) {
-                    tr[i].style.display = "";
-                } else {
-                    tr[i].style.display = "none";
-                }
-            }
-        }
-    }
 </script>
 
 @*<button>Sök</button>*@

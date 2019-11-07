@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using System.Web.Mvc;
 
 namespace GruppL_IK073G_ht19.ViewModels
 {
@@ -14,9 +15,10 @@ namespace GruppL_IK073G_ht19.ViewModels
         public string LastName { get; set; }
         //FRÅN EXPETIS
         public string Expertis { get; set; }
+        public List<Expertises> Expertislist { get; set; }
         //FRÅN COMPETENCE
         public string Competence { get; set; }
-        //Behövs det från relationstabellerna?
+        public SelectList DropDownList { get; set; }
 
     }
 }
