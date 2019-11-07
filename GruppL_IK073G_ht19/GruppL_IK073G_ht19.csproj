@@ -150,10 +150,14 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Controllers\CompetencesController.cs" />
     <Compile Include="Controllers\CustomersController.cs" />
+    <Compile Include="Controllers\EducationsController.cs" />
     <Compile Include="Controllers\EmploymentsController.cs" />
     <Compile Include="Controllers\ExpertisesController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\key_abilitiyController.cs" />
+    <Compile Include="Controllers\LanguagesController.cs" />
     <Compile Include="Controllers\PersonExpertiesController.cs" />
     <Compile Include="Controllers\PersonsController.cs" />
     <Compile Include="Controllers\PersonsOperation.cs" />
@@ -288,6 +292,26 @@
     <Content Include="Views\Employments\Details.cshtml" />
     <Content Include="Views\Employments\Edit.cshtml" />
     <Content Include="Views\Employments\Index.cshtml" />
+    <Content Include="Views\Languages\Create.cshtml" />
+    <Content Include="Views\Languages\Delete.cshtml" />
+    <Content Include="Views\Languages\Details.cshtml" />
+    <Content Include="Views\Languages\Edit.cshtml" />
+    <Content Include="Views\Languages\Index.cshtml" />
+    <Content Include="Views\Competences\Create.cshtml" />
+    <Content Include="Views\Competences\Delete.cshtml" />
+    <Content Include="Views\Competences\Details.cshtml" />
+    <Content Include="Views\Competences\Edit.cshtml" />
+    <Content Include="Views\Competences\Index.cshtml" />
+    <Content Include="Views\Educations\Create.cshtml" />
+    <Content Include="Views\Educations\Delete.cshtml" />
+    <Content Include="Views\Educations\Details.cshtml" />
+    <Content Include="Views\Educations\Edit.cshtml" />
+    <Content Include="Views\Educations\Index.cshtml" />
+    <Content Include="Views\key_abilitiy\Create.cshtml" />
+    <Content Include="Views\key_abilitiy\Delete.cshtml" />
+    <Content Include="Views\key_abilitiy\Details.cshtml" />
+    <Content Include="Views\key_abilitiy\Edit.cshtml" />
+    <Content Include="Views\key_abilitiy\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
