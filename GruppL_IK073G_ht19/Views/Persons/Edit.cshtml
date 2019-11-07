@@ -78,7 +78,7 @@
             @Html.LabelFor(model => model.Driver_license, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 <div class="checkbox">
-                    @Html.EditorFor(model => model.Driver_license)
+                    @Html.EditorFor(model => model.Driver_license, new { htmlAttributes = new { @class = "form-control" } })
                     @Html.ValidationMessageFor(model => model.Driver_license, "", new { @class = "text-danger" })
                 </div>
             </div>
