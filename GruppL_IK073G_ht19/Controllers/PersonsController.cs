@@ -28,6 +28,11 @@ namespace GruppL_IK073G_ht19.Controllers
             return View(db.Persons.ToList());
         }
 
+        public ActionResult CIndex()
+        {
+            return View(db.Persons.ToList());
+        }
+
         // GET: Persons/Details/5
         public ActionResult Details(int? id)
         {
@@ -56,6 +61,32 @@ namespace GruppL_IK073G_ht19.Controllers
             return View(viewModel);
         }
 
+        public ActionResult CDetails(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            Persons persons = db.Persons.Find(id);
+            if (persons == null)
+            {
+                return HttpNotFound();
+            }
+            PersonsOperation p = new PersonsOperation();
+            var viewModel = new PersonViewModels
+            {
+                Persons = persons,
+                Educations = p.Educations(id),
+                Employments = p.FindEmployment(id),
+                key_Abilitiys = p.KeyAbilitiys(id),
+                PersonExpertises = p.PersonExpertises(id),
+                Languages = p.Languages(id)
+
+            };
+
+
+            return View(viewModel);
+        }
         // GET: Persons/Create
         public ActionResult Create()
         {
