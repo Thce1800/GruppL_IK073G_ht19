@@ -4,48 +4,49 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
+<h2>Anställningar</h2>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
+<a href="/Employments/Create"><button class="logout"><b>+</b>Lägg till</button></a>
+
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.End_date)
+            Arbetsuppgifter
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Start_date)
+            Startdatum
         </th>
+
         <th>
-            @Html.DisplayNameFor(model => model.Assignments)
+            Stoppdatum
         </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Persons.FirstName)
-        </th>
-        <th></th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.End_date)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Start_date)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Assignments)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Persons.FirstName)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.Employment_id }) |
-            @Html.ActionLink("Details", "Details", new { id=item.Employment_id }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.Employment_id })
-        </td>
-    </tr>
-}
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Assignments)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Start_date)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.End_date)
+            </td>
+
+            <td>
+                <a href="/Employments/Edit/1">Redigera</a> | 
+                <a href="/Employments/Delete/1">Radera</a>
+
+
+            </td>
+        </tr>
+    }
+
 
 </table>
+<div>
+    <a href="/Persons/Details/1"><button class="logout">Tillbaka till profilen</button></a>
+    
+</div>

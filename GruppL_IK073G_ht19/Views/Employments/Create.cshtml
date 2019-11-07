@@ -4,27 +4,21 @@
     ViewBag.Title = "Create";
 }
 
-<h2>Create</h2>
+<h2>Lägg till</h2>
 
 
-@using (Html.BeginForm()) 
+@using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
-    
+
     <div class="form-horizontal">
-        <h4>Employments</h4>
+        <h4>Anställning</h4>
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        
         <div class="form-group">
-            @Html.LabelFor(model => model.Person_Id, "Person_Id", htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.DropDownList("Person_Id", null, htmlAttributes: new { @class = "form-control" })
-                @Html.ValidationMessageFor(model => model.Person_Id, "", new { @class = "text-danger" })
-            </div>
-        </div>
+            <label class="control-label col-md-2">Stoppdatum</label>
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.End_date, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.EditorFor(model => model.End_date, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.End_date, "", new { @class = "text-danger" })
@@ -32,7 +26,8 @@
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.Start_date, htmlAttributes: new { @class = "control-label col-md-2" })
+            <label class="control-label col-md-2">Startdatum</label>
+
             <div class="col-md-10">
                 @Html.EditorFor(model => model.Start_date, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.Start_date, "", new { @class = "text-danger" })
@@ -40,7 +35,8 @@
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.Assignments, htmlAttributes: new { @class = "control-label col-md-2" })
+            <label class="control-label col-md-2">Arbetsuppgifter</label>
+
             <div class="col-md-10">
                 @Html.EditorFor(model => model.Assignments, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.Assignments, "", new { @class = "text-danger" })
@@ -49,15 +45,13 @@
 
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Create" class="btn btn-default" />
+                <input type="submit" value="Lägg till" class="btn btn-default" />
             </div>
         </div>
     </div>
 }
 
-<div>
-    @Html.ActionLink("Back to List", "Index")
-</div>
+<a href="Index"><button class="logout">Tillbaka</button></a>
 
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
