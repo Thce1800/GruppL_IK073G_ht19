@@ -24,24 +24,22 @@
 
     @foreach (var item in Model)
     {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Assignments)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Start_date)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.End_date)
-            </td>
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Assignments)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Start_date)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.End_date)
+        </td>
 
-            <td>
-                <a href="/Employments/Edit/1">Redigera</a> | 
-                <a href="/Employments/Delete/1">Radera</a>
-
-
-            </td>
-        </tr>
+        <td>
+            @Html.ActionLink("Redigera", "Edit", new { id = item.Employment_id }) |
+            @Html.ActionLink("Radera", "Delete", new { id = item.Employment_id })
+        </td>
+    </tr>
     }
 
 
