@@ -4,30 +4,30 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
+<h2>Kompetenser</h2>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
+<a href="/Competences/Create"><button class="logout"><b>+</b>Lägg till</button></a>
+
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.Competence)
+            Kompetens
         </th>
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Competence)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.Competence_id }) |
-            @Html.ActionLink("Details", "Details", new { id=item.Competence_id }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.Competence_id })
-        </td>
-    </tr>
-}
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Competence)
+            </td>
+            <td>
+                @Html.ActionLink("Redigera", "Edit", new { id = item.Competence_id }) |
+                @Html.ActionLink("Radera", "Delete", new { id = item.Competence_id })
+            </td>
+        </tr>
+    }
 
 </table>
+<a href="/Persons/Details/1"><button class="logout">Tillbaka till profilen</button></a>
