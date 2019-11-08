@@ -31,30 +31,29 @@
 
     @foreach (var item in Model)
     {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Educational_institution)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Educational_program)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Diploma)
-            </td>
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Educational_institution)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Educational_program)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Diploma)
+        </td>
 
-            <td>
-                @Html.DisplayFor(modelItem => item.Start_date)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.End_date)
-            </td>
-            <td>
-                <a href="/Educations/Edit/1">Redigera</a> |
-                <a href="/Educations/Delete/1">Radera</a>
+        <td>
+            @Html.DisplayFor(modelItem => item.Start_date)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.End_date)
+        </td>
+        <td>
+            @Html.ActionLink("Redigera", "Edit", new { id = item.Education_id }) |
+            @Html.ActionLink("Radera", "Delete", new { id = item.Education_id })
+        </td>
 
-            </td>
-
-        </tr>
+    </tr>
     }
 
 </table>
