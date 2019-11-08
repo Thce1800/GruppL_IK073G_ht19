@@ -88,7 +88,7 @@ namespace GruppL_IK073G_ht19.Controllers
             {
                 db.Entry(educations).State = EntityState.Modified;
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("Edit/1");
             }
             ViewBag.Person_ID = new SelectList(db.Persons, "Person_id", "FirstName", educations.Person_ID);
             return View(educations);

@@ -88,7 +88,7 @@ namespace GruppL_IK073G_ht19.Controllers
             {
                 db.Entry(expertises).State = EntityState.Modified;
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("Edit/1");
             }
             ViewBag.Competence_id = new SelectList(db.Competences, "Competence_id", "Competence", expertises.Competence_id);
             return View(expertises);
