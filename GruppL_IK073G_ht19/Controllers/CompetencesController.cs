@@ -84,7 +84,7 @@ namespace GruppL_IK073G_ht19.Controllers
             {
                 db.Entry(competences).State = EntityState.Modified;
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("Edit/1");
             }
             return View(competences);
         }
