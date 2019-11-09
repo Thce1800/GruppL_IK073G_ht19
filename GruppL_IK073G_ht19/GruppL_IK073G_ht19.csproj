@@ -162,6 +162,7 @@
     <Compile Include="Controllers\PersonExpertiesController.cs" />
     <Compile Include="Controllers\PersonsController.cs" />
     <Compile Include="Controllers\PersonsOperation.cs" />
+    <Compile Include="Controllers\Person_ExpertiseController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -308,6 +309,11 @@
     <Content Include="Views\key_abilitiy\Delete.cshtml" />
     <Content Include="Views\key_abilitiy\Edit.cshtml" />
     <Content Include="Views\key_abilitiy\Index.cshtml" />
+    <Content Include="Views\Person_Expertise\Create.cshtml" />
+    <Content Include="Views\Person_Expertise\Delete.cshtml" />
+    <Content Include="Views\Person_Expertise\Details.cshtml" />
+    <Content Include="Views\Person_Expertise\Index.cshtml" />
+    <Content Include="Views\Person_Expertise\Edit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

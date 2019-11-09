@@ -15,9 +15,7 @@ namespace GruppL_IK073G_ht19.Models
 
     public partial class Person_Expertise
     {
-        [ScaffoldColumn(false)]
         public int Person_id { get; set; }
-        [ScaffoldColumn(false)]
         public int Expertise_id { get; set; }
         public Nullable<int> Grade { get; set; }
     

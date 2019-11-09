@@ -52,7 +52,6 @@ namespace GruppL_IK073G_ht19.Controllers
 
         public List<Person_Expertise> PersonExpertises(int? id)
         {
-            int i = 0;
             var personExpertisesId = personExpertises.Where(s => s.Person_id == id).ToList();
 
             return personExpertisesId;
