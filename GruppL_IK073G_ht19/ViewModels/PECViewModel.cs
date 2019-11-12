@@ -5,7 +5,7 @@ using System.Web;
 
 namespace GruppL_IK073G_ht19.ViewModels
 {
-    public class PersonExpertiseCompetensViewModel
+    public class PECViewModel
     {
         public int Person_id { get; set; }
         public string FirstName { get; set; }
@@ -15,5 +15,7 @@ namespace GruppL_IK073G_ht19.ViewModels
         public int Competence_id { get; set; }
         public string Expertise { get; set; }
         public string Competence { get; set; }
+
+        public int Id { get; set; }
     }
 }

@@ -11,10 +11,10 @@ namespace GruppL_IK073G_ht19.Models
 {
     using System;
     using System.Collections.Generic;
-    using System.ComponentModel.DataAnnotations;
-
+    
     public partial class Person_Expertise
     {
+        public int Id { get; set; }
         public int Person_id { get; set; }
         public int Expertise_id { get; set; }
         public Nullable<int> Grade { get; set; }

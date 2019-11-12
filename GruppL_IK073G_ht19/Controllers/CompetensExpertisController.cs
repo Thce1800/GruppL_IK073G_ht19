@@ -17,8 +17,7 @@ namespace GruppL_IK073G_ht19.Controllers
              gruppldbEntities1 db = new gruppldbEntities1();
 
         
-            //Borde ligga i en modell
-            List<PersonExpertiseCompetensViewModel> PersonExpertisListTest = new List<PersonExpertiseCompetensViewModel>();
+            List<PECViewModel> PersonExpertisListTest = new List<PECViewModel>();
 
             var personlist = (from person in db.Persons
                               join expertisPerson in db.Person_Expertise on person.Person_id equals
@@ -46,7 +45,7 @@ namespace GruppL_IK073G_ht19.Controllers
                               }).ToList();
             foreach (var item in personlist)
             {
-                PersonExpertiseCompetensViewModel objPEvmTest = new PersonExpertiseCompetensViewModel();
+                PECViewModel objPEvmTest = new PECViewModel();
                 objPEvmTest.FirstName = item.FirstName;
                 objPEvmTest.LastName = item.LastName;
                 objPEvmTest.Expertise = item.Expertise;
@@ -54,16 +53,7 @@ namespace GruppL_IK073G_ht19.Controllers
                 objPEvmTest.Grade = item.Grade;
                 PersonExpertisListTest.Add(objPEvmTest);
             }
-            //JAG HAR JU RETURNERAT EN NY LISTA, få tillbaka den från viewn och sök genom den??
             return View(PersonExpertisListTest);
-            //gruppldbEntities1 db = new gruppldbEntities1();
-
-            //List<Person_Expertise> personExpertises = new List<Person_Expertise>();
-            //PersonExpertiseCompetensViewModel pECVM = new PersonExpertiseCompetensViewModel();
-
-            //List <PersonExpertiseCompetensViewModel> pECVMs = personExpertises.Select(x => new PersonExpertiseCompetensViewModel 
-            //{ Competence=x.}
-            //)
         }
     }
 }

@@ -1,15 +1,14 @@
-﻿@model IEnumerable<GruppL_IK073G_ht19.ViewModels.PersonExpertiseCompetensViewModel>
-
+﻿@model IEnumerable<GruppL_IK073G_ht19.ViewModels.PECViewModel>
 
 @{
     ViewBag.Title = "Index";
 }
 
-<h2>Expertiser</h2>
+<h2>Kompetenser och Expertiser</h2>
 
-<a href="/Person_Expertise/Create"><button class="logout"><b>+</b>Lägg till</button></a>
-
-
+<p>
+    @Html.ActionLink("Skapa ny", "Create")
+</p>
 <table class="table">
     <tr>
         <th>
@@ -37,12 +36,12 @@
                 @Html.DisplayFor(modelItem => item.Grade)
             </td>
             <td>
-                @Html.ActionLink("Redigera", "Edit", new { id = item.Expertise_id }) |
-                @Html.ActionLink("Radera", "Delete", new { id = item.Expertise_id })
+                @Html.ActionLink("Radera", "Delete", new { id = item.Id })
             </td>
         </tr>
     }
 
 </table>
+
 <a href="/Persons/Details/1"><button class="logout">Tillbaka till profilen</button></a>
-<a href="/Competences/Index/1"><button class="logout">Redigera kärnförmågor</button></a>
+

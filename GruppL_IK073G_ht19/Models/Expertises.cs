@@ -20,7 +20,7 @@ namespace GruppL_IK073G_ht19.Models
         {
             this.Person_Expertise = new HashSet<Person_Expertise>();
         }
-
+    
         [ScaffoldColumn(false)]
         public int Expertise_id { get; set; }
         public string Expertise { get; set; }

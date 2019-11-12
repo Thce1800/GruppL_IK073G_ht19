@@ -16,9 +16,9 @@ namespace GruppL_IK073G_ht19.Controllers
         private gruppldbEntities1 db = new gruppldbEntities1();
 
         // GET: Person_Expertise
-        public ActionResult Index(int id)
+        public ActionResult Index(int? id)
         {
-            List<PersonExpertiseCompetensViewModel> PersonExpertisListTest = new List<PersonExpertiseCompetensViewModel>();
+            List<PECViewModel> PersonExpertisListTest = new List<PECViewModel>();
 
             var personlist = (from person in db.Persons
                               join expertisPerson in db.Person_Expertise on person.Person_id equals
@@ -41,44 +41,48 @@ namespace GruppL_IK073G_ht19.Controllers
                                   person.LastName,
                                   expertis.Expertise,
                                   competense.Competence,
-                                  expertisPerson.Grade
+                                  expertisPerson.Grade,
+                                  expertis.Expertise_id,
+                                  expertisPerson.Id
 
                               }).ToList();
             foreach (var item in personlist)
             {
-                PersonExpertiseCompetensViewModel objPEvmTest = new PersonExpertiseCompetensViewModel();
+                PECViewModel objPEvmTest = new PECViewModel();
                 objPEvmTest.FirstName = item.FirstName;
                 objPEvmTest.LastName = item.LastName;
                 objPEvmTest.Expertise = item.Expertise;
                 objPEvmTest.Competence = item.Competence;
                 objPEvmTest.Grade = item.Grade;
+                objPEvmTest.Expertise_id = item.Expertise_id;
+                objPEvmTest.Person_id = item.Person_id;
+                objPEvmTest.Id = item.Id;
                 PersonExpertisListTest.Add(objPEvmTest);
             }
-            //JAG HAR JU RETURNERAT EN NY LISTA, få tillbaka den från viewn och sök genom den??
             return View(PersonExpertisListTest);
+
         }
 
-        // GET: Person_Expertise/Details/5
-        public ActionResult Details(int? id)
-        {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            Person_Expertise person_Expertise = db.Person_Expertise.Find(id);
-            if (person_Expertise == null)
-            {
-                return HttpNotFound();
-            }
-            return View(person_Expertise);
-        }
+
 
         // GET: Person_Expertise/Create
-        public ActionResult Create(int id, int expertiseId)
+        public ActionResult Create()//int? idcomp)
         {
-            ViewBag.Expertise_id = new SelectList(db.Expertises, "Expertise_id", "Expertise");
             ViewBag.Person_id = new SelectList(db.Persons, "Person_id", "FirstName");
+            ViewBag.Expertise_id = new SelectList(db.Expertises, "Expertise_id", "Expertise");
+            ViewBag.Competence = new SelectList(db.Competences, "Competence_id", "Competence");
             return View();
+        }
+
+        public List <Expertises> Expertisess(int idcomp)
+        {
+            List<Expertises> expertises = new List<Expertises>();
+
+            expertises = db.Expertises.ToList();
+
+            var expertisess = expertises.Where(s => s.Competence_id == idcomp).ToList();
+
+            return expertisess;
         }
 
         // POST: Person_Expertise/Create
@@ -88,11 +92,12 @@ namespace GruppL_IK073G_ht19.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "Person_id,Expertise_id,Grade")] Person_Expertise person_Expertise)
         {
+            int id = person_Expertise.Person_id;
             if (ModelState.IsValid)
             {
                 db.Person_Expertise.Add(person_Expertise);
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("Index", new {id});
             }
 
             ViewBag.Expertise_id = new SelectList(db.Expertises, "Expertise_id", "Expertise", person_Expertise.Expertise_id);
@@ -100,40 +105,7 @@ namespace GruppL_IK073G_ht19.Controllers
             return View(person_Expertise);
         }
 
-        // GET: Person_Expertise/Edit/5
-        public ActionResult Edit(int? id)
-        {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            Person_Expertise person_Expertise = db.Person_Expertise.Find(id);
-            if (person_Expertise == null)
-            {
-                return HttpNotFound();
-            }
-            ViewBag.Expertise_id = new SelectList(db.Expertises, "Expertise_id", "Expertise", person_Expertise.Expertise_id);
-            ViewBag.Person_id = new SelectList(db.Persons, "Person_id", "FirstName", person_Expertise.Person_id);
-            return View(person_Expertise);
-        }
 
-        // POST: Person_Expertise/Edit/5
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Person_id,Expertise_id,Grade")] Person_Expertise person_Expertise)
-        {
-            if (ModelState.IsValid)
-            {
-                db.Entry(person_Expertise).State = EntityState.Modified;
-                db.SaveChanges();
-                return RedirectToAction("Index");
-            }
-            ViewBag.Expertise_id = new SelectList(db.Expertises, "Expertise_id", "Expertise", person_Expertise.Expertise_id);
-            ViewBag.Person_id = new SelectList(db.Persons, "Person_id", "FirstName", person_Expertise.Person_id);
-            return View(person_Expertise);
-        }
 
         // GET: Person_Expertise/Delete/5
         public ActionResult Delete(int? id)
@@ -158,7 +130,8 @@ namespace GruppL_IK073G_ht19.Controllers
             Person_Expertise person_Expertise = db.Person_Expertise.Find(id);
             db.Person_Expertise.Remove(person_Expertise);
             db.SaveChanges();
-            return RedirectToAction("Index");
+            id = person_Expertise.Person_id;
+            return RedirectToAction("Index", new { id });
         }
 
         protected override void Dispose(bool disposing)

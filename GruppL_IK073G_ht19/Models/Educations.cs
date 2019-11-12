@@ -21,10 +21,8 @@ namespace GruppL_IK073G_ht19.Models
         public string Educational_program { get; set; }
         public string Diploma { get; set; }
         [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:MM/dd/yyyy}")]
-
         public Nullable<System.DateTime> End_date { get; set; }
         [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:MM/dd/yyyy}")]
-
         public Nullable<System.DateTime> Start_date { get; set; }
     
         public virtual Persons Persons { get; set; }

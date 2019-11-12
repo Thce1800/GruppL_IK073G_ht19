@@ -212,7 +212,7 @@
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="ViewModels\PersonExpertiseCompetensViewModel.cs" />
+    <Compile Include="ViewModels\PECViewModel.cs" />
     <Compile Include="ViewModels\PersonViewModels.cs" />
     <Compile Include="ViewModels\PersonExpertisVM.cs" />
   </ItemGroup>
@@ -312,8 +312,8 @@
     <Content Include="Views\Person_Expertise\Create.cshtml" />
     <Content Include="Views\Person_Expertise\Delete.cshtml" />
     <Content Include="Views\Person_Expertise\Details.cshtml" />
-    <Content Include="Views\Person_Expertise\Index.cshtml" />
     <Content Include="Views\Person_Expertise\Edit.cshtml" />
+    <Content Include="Views\Person_Expertise\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
