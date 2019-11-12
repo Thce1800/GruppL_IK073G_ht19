@@ -12,7 +12,7 @@ namespace GruppL_IK073G_ht19.Controllers
     {
         private gruppldbEntities1 db = new gruppldbEntities1();
         // GET: PersonExperties
-        public ActionResult Index(string sortOrder)
+        public ActionResult Index()
         {
             //Borde ligga i en modell
             List<PersonExpertisVM> PersonExpertisList = new List<PersonExpertisVM>();
@@ -46,51 +46,12 @@ namespace GruppL_IK073G_ht19.Controllers
                 objPEvm.Competence = item.Competence;
                 PersonExpertisList.Add(objPEvm);
             }
-            //JAG HAR JU RETURNERAT EN NY LISTA, få tillbaka den från viewn och sök genom den??
+            
             return View(PersonExpertisList);
         }
 
 
 
-        //SKRÄP
-        [HttpGet]
-        public ActionResult ListUser()
-        {
-            var users = db.Expertises.ToList();
 
-            var viewModel = new PersonExpertisVM { Expertislist = users }; //ELLER DEN ANDRA VYMODELLEN
-
-            return View(viewModel);
-        }
-        public List<Expertises> SearchPerson(int ? id) 
-        {
-            List<Expertises> person = new List<Expertises>();
-            person = db.Expertises.ToList();
-            var result = person.Where(s => s.Expertise_id == id).ToList();
-            return result;
-
-        }
-        public ActionResult Test() //DENNA FUNGERAR I EN NY VIEW
-        {
-            ViewBag.Competence_id = new SelectList(db.Competences, "Competence_id", "Competence");
-
-            return View();
-        }
-        public PartialViewResult Load()
-        {
-            return PartialView("_Filter");
-        }
-        public ActionResult GetList() 
-        {
-            var expertises = (from expertis in db.Expertises select expertis.Expertise).ToList();
-            return View(expertises);
-        }
-
-        [HttpPost]
-        public ActionResult GetList(Expertises model)
-        {
-            var data = db.Expertises.ToList();
-            return View(data);
-        }
     }
 }
